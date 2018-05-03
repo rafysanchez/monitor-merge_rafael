@@ -1,0 +1,103 @@
+<prodesp-modal [title]='title' [closeButtonText]='closeButtonText' [confirmButtonText]='confirmButtonText'
+[isClickDisabled]='Nome.errors || Tipo.errors || Descricao.errors' 
+[modalData] = 'novoMotivoAcao'
+[showConfirmButton]='showConfirmButton' (onConfirm)='confirm($event)' (onClose)='closeModal()'>
+<div class="row" *ngIf='mensagem !== null'>
+    <div class="alert alert-success" role="alert">
+              <strong> {{mensagem}} </strong>  
+      </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+        <div id="builder"></div>
+      <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div id="inf-basicas">
+              <div class="row">
+                  <div class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-2">
+                          <label>Tipo:</label>
+                      </div>
+                      <div class="col-xs-10">                        
+                        <select [(ngModel)]='novoMotivoAcao.Tipo' #Tipo='ngModel' required [ngModelOptions]="{ standalone: true }" name="Tipo" [attr.value]='novoMotivoAcao.Tipo' class="form-control col-xs-12 input-xs">                                    
+                          <option *ngFor='let t of Tipos' [ngValue]="t.Descricao" [selected]="novoMotivoAcao.Tipo == t.Descricao"> {{t.Descricao}}</option>                           
+                        </select>   
+                      </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-2">
+                        <label class="control-label">Nome: </label>
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" [(ngModel)]='novoMotivoAcao.Nome' [ngModelOptions]="{ standalone: true }" #Nome='ngModel' name="Nome" required class="form-control input-xs">
+                    </div>
+                </div>
+                  <div class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-2">
+                          <label>Descrição:</label>
+                      </div>
+                      <div class="col-xs-10">
+                          <span class="input-icon icon-right" style="width:100%; margin-top:5px;">
+                              <textarea class="form-control input-xs" #Descricao='ngModel' required [(ngModel)]='novoMotivoAcao.Descricao' [ngModelOptions]="{ standalone: true }" name="Descricao" rows="4" style="width:100%"></textarea>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-4">
+                          <label>Ativo:</label>
+                      </div>
+                      <div class="col-xs-5">
+                          <label>
+                              <input class="checkbox-slider colored-blue status" [(ngModel)]='novoMotivoAcao.Situacao'  type="checkbox">
+                              <span class="text"></span>
+                          </label>
+                      </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-4">
+                          <label>Pode Editar Justificativa:</label>
+                      </div>
+                      <div class="col-xs-5">
+                          <label>
+                              <input class="checkbox-slider colored-blue" [(ngModel)]='novoMotivoAcao.PodeEditarJustificativa' type="checkbox">
+                              <span class="text"></span>
+                          </label>
+                      </div>
+                  </div>
+                  <div *ngIf='novoMotivoAcao.PodeEditarJustificativa' class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-4">
+                          <label>Justificativa obrigatória :</label>
+                      </div>
+                      <div class="col-xs-5">
+                          <label>
+                              <input class="checkbox-slider colored-blue" [(ngModel)]='novoMotivoAcao.JustificativaObrigatoria' type="checkbox">
+                              <span class="text"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div>    
+          </div>
+      </div>
+  </div>
+</div>
+    <div *ngIf="Erros" class="alert alert-danger">
+        <div>
+            {{Erros}}
+        </div>                
+    </div>    
+    <div *ngIf="Nome.errors && (Nome.dirty || Nome.touched)" class="alert alert-danger">
+        <div [hidden]="!Nome.errors.required">
+                O campo 'Nome' é obrigatório                
+        </div>                
+    </div>      
+    <div *ngIf="Tipo.errors && (Tipo.dirty || Tipo.touched)" class="alert alert-danger">
+        <div [hidden]="!Tipo.errors.required">
+            O campo 'Tipo' é obrigatório
+        </div>                
+    </div> 
+    <div *ngIf="Descricao.errors && (Descricao.dirty || Descricao.touched)" class="alert alert-danger">
+        <div [hidden]="!Descricao.errors.required">
+            O campo 'Descricao' é obrigatório
+        </div>                
+    </div> 
+    
+</prodesp-modal>

@@ -1,0 +1,36 @@
+<prodesp-table-widget [page]='page' [perPage]='perPage'  [showPerPage]='tableConfig.showPerPage' (onSearchClicked)='onSearch($event)' (onPerPageChanged)='perPageChanged($event)'>
+  <ng-template ngWidgetActions>
+      <a class="btn btn-primary shiny btn-xs" (click)="onAdd()"> 
+          <i class='fa fa-plus'></i>Cadastrar
+      </a>  
+  </ng-template>
+  <ng-template ngWidgetBody>
+    <prodesp-loader [isLoading]='isLoading'>
+        <prodesp-table [tableOptions]="tableConfig" (onSortClicked)='onSortClicked($event)' class="table-responsive">
+            <tr *ngFor='let item of tableData'>
+              <td>{{item.Tipo}}</td>
+              <td>{{item.Nome}}</td>
+              <td class='descricao'>{{item.Descricao}}</td>          
+              <td class="text-center">
+                <span class="label" [ngClass]='{"label-success": item.JustificativaObrigatoria, "label-danger": !item.JustificativaObrigatoria}'>
+                  {{decodeJustificativaObrigatoria(item)}}
+                </span>
+              </td>
+              <td class="text-center">
+                <span class="label" [ngClass]='{"label-success": item.PodeEditarJustificativa, "label-danger": !item.PodeEditarJustificativa}'>
+                  {{decodePodeEditarJustificativa(item)}}
+                </span>
+              </td>
+              <td><span class="label" [ngClass]='{"label-success": item.Situacao, "label-danger": !item.Situacao}'>{{ decodeSituacao(item) }}</span></td>
+              <td class="text-center">
+                  <a class="btn btn-xs btn-info" (click)='onEdit(item)' ><i class="fa fa-edit"></i> Editar </a>
+              </td>
+            </tr>        
+          </prodesp-table>
+        <prodesp-table-pagination class='row' [totalPages]='totalPages' [page]='page' [perPage]='perPage' (onPageChange)='pageChanges($event)'>                
+        </prodesp-table-pagination>
+    </prodesp-loader>
+     
+  </ng-template>
+  
+</prodesp-table-widget>     

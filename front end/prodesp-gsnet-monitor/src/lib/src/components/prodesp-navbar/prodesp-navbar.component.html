@@ -1,0 +1,194 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color:#585858;">
+       <div class="navbar-container">
+          <!-- Navbar Brand -->
+          <div class="navbar-header pull-left">
+             <a href="{{navbarBrand}}" class="navbar-brand">
+             <small>
+             <img src="{{navbarLogo}}" style="height:35px; width: 150px; padding-top: 2px;">
+             </small>
+             </a>
+          </div>
+          <!-- /Navbar Brand -->
+          <!-- Sidebar Collapse -->
+          <div class="sidebar-collapse" [ngClass]='{"active":isSideBarCollapsed}' id="sidebar-collapse">
+             <i class="collapse-icon fa fa-bars" (click)='toogleSideBar()'></i>
+          </div>
+          <!-- /Sidebar Collapse -->
+          <!-- Account Area and Settings -->
+          <div class="navbar-header pull-right">
+             <div class="navbar-account" [ngClass]='{"setting-open":navAccountIsOpen}' >
+                <ul class="account-area">
+                   <li>
+                      <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                         <section>
+                            <h2><span class="profile"><span>Marcos Prezoto</span></span></h2>
+                         </section>
+                      </a>
+                      <!--Login Area Dropdown-->
+                      <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+                         <li class="username"><a>Marcos Marchetti</a></li>
+                         <li class="email"><a>mprezoto@sp.gov.br</a></li>
+                         <!--Avatar Area-->
+                         <li>
+                            <div class="avatar-area">
+                               <img src="{{logoUser}}" class="avatar">
+                               <span class="caption">Mudar Senha</span>
+                            </div>
+                         </li>
+                         <li class="dropdown-footer">
+                            <a [routerLink]=''>
+                            Sair
+                            </a>
+                         </li>
+                      </ul>
+                      <!--/Login Area Dropdown-->
+                   </li>
+                   <!-- /Account Area -->
+                   <!--Note: notice that setting div must start right after account area list.
+                      no space must be between these elements-->
+                   <!-- Settings -->
+                </ul>
+                <div class="setting">
+                   <a id="btn-setting" title="Selecione o Gestor" [routerLink]='' (click)='toogleAccountConfig()'>
+                   <i class="icon glyphicon glyphicon-list-alt"></i>
+                   </a>
+                </div>
+                <div class="setting-container">
+                   <select id="e3" style="padding:2px;">
+                      <option value="Null">--selecione o gestor--</option>
+                      <option value="71">(71) - CAIS LINS</option>
+                      <option value="28">(28) - CAIS S.RITA</option>
+                      <option value="21">(21) - CAISM ÁGUA FUNDA</option>
+                      <option value="55">(55) - CAISM PINEL</option>
+                      <option value="59">(59) - CCD</option>
+                      <option value="54">(54) - CCTIES</option>
+                      <option value="33">(33) - CGA</option>
+                      <option value="17">(17) - CGCSS</option>
+                      <option value="36">(36) - CH PE BENTO</option>
+                      <option value="78">(78) - CODES</option>
+                      <option value="68">(68) - CPAPS - AJJE</option>
+                      <option value="16">(16) - CRATOD</option>
+                      <option value="3">(03) - CRS </option>
+                      <option value="40">(40) - CRT - DST/AIDS</option>
+                      <option value="8">(08) - CSS</option>
+                      <option value="56">(56) - CVE</option>
+                      <option value="24">(24) - CVS</option>
+                      <option value="20">(20) - DGAC</option>
+                      <option value="7">(07) - DRS-I GR.SÃO PAULO</option>
+                      <option value="13">(13) - DRS-II ARAÇATUBA</option>
+                      <option value="15">(15) - DRS-III ARARAQUARA</option>
+                      <option value="9">(09) - DRS-IV BAIX.SANTISTA</option>
+                      <option value="10">(10) - DRS-IX MARÍLIA</option>
+                      <option value="22">(22) - DRS-V BARRETOS</option>
+                      <option value="27">(27) - DRS-VI BAURU</option>
+                      <option value="25">(25) - DRS-VII CAMPINAS</option>
+                      <option value="98">(98) - DRS-VIII FRANCA</option>
+                      <option value="69">(69) - DRS-X PIRACICABA</option>
+                      <option value="38">(38) - DRS-XI PRES.PRUDENTE</option>
+                      <option value="76">(76) - DRS-XII REGISTRO</option>
+                      <option value="47">(47) - DRS-XIII RIB.PRETO</option>
+                      <option value="29">(29) - DRS-XIV S.J.BOA VISTA</option>
+                      <option value="14">(14) - DRS-XV S.J.RIO PRETO</option>
+                      <option value="74">(74) - FAC - ARAÇATUBA</option>
+                      <option value="63">(63) - FAC - ARARAQUARA</option>
+                      <option value="66">(66) - FAC - ASSIS</option>
+                      <option value="46">(46) - FAC - BARRETOS</option>
+                      <option value="44">(44) - FAC - BAURU</option>
+                      <option value="95">(95) - FAC - BOTUCATU</option>
+                      <option value="41">(41) - FAC - CAMPINAS</option>
+                      <option value="92">(92) - FAC - CRT AIDS</option>
+                      <option value="80">(80) - FAC - DANTE PAZZANESE</option>
+                      <option value="90">(90) - FAC - EMILIO RIBAS</option>
+                      <option value="45">(45) - FAC - FRANCA</option>
+                      <option value="94">(94) - FAC - FRANCO DA ROCHA</option>
+                      <option value="89">(89) - FAC - GUARULHOS</option>
+                      <option value="93">(93) - FAC - HELIOPOLIS</option>
+                      <option value="62">(62) - FAC - IAMSPE</option>
+                      <option value="49">(49) - FAC - MARÍLIA</option>
+                      <option value="48">(48) - FAC - MOGI DAS CRUZES</option>
+                      <option value="53">(53) - FAC - PIRACICABA</option>
+                      <option value="72">(72) - FAC - PRES. PRUDENTE</option>
+                      <option value="82">(82) - FAC - REGISTRO</option>
+                      <option value="52">(52) - FAC - RIBEIRÃO PRETO</option>
+                      <option value="75">(75) - FAC - SANTOS</option>
+                      <option value="67">(67) - FAC - SJ BOA VISTA</option>
+                      <option value="81">(81) - FAC - SJ DOS CAMPOS</option>
+                      <option value="50">(50) - FAC - SJR.PRETO - HB</option>
+                      <option value="51">(51) - FAC - SJR.PRETO - J.P II</option>
+                      <option value="60">(60) - FAC - SOROCABA</option>
+                      <option value="65">(65) - FAC - TAUBATÉ</option>
+                      <option value="42">(42) - FAC - UNICAMP</option>
+                      <option value="61">(61) - FAC - VOTUPORANGA</option>
+                      <option value="57">(57) - GAB - CCD</option>
+                      <option value="11">(11) - GAB.DO SECRETÁRIO - GS</option>
+                      <option value="58">(58) - GGA - CCD</option>
+                      <option value="96">(96) - HOSP. FERRAZ DE VASCONCELOS</option>
+                      <option value="97">(97) - HOSP. HELIOPOLIS - UGA I</option>
+                      <option value="12">(12) - HOSP.GERAL GUAIANASES</option>
+                      <option value="87">(87) - HOSP.GERAL S.MATEUS</option>
+                      <option value="83">(83) - HOSP.GERAL V.N.CACHOEIRINHA</option>
+                      <option value="85">(85) - HOSP.INFANTIL CANDIDO FONTOURA</option>
+                      <option value="18">(18) - HOSP.LEONOR - UGA IV</option>
+                      <option value="84">(84) - HOSP.MATERNIDADE INTERLAGOS</option>
+                      <option value="79">(79) - HOSP.MIRANDOPOLIS</option>
+                      <option value="43">(43) - HOSP.NESTOR GOULART - HNGR</option>
+                      <option value="88">(88) - HOSP.PEROLA BYINGTON</option>
+                      <option value="34">(34) - HOSP.PROMISSÃO</option>
+                      <option value="86">(86) - HOSP.REGIONAL OSASCO</option>
+                      <option value="64">(64) - HOSP.STA.TEREZA R.PRETO(HSTRP)</option>
+                      <option value="19">(19) - INST.ADOLFO LUTZ - IAL</option>
+                      <option value="4">(04) - INST.BUTANTAN - IBUT</option>
+                      <option value="31">(31) - INST.CLEMENTE - ICF</option>
+                      <option value="70">(70) - INST.EMÍLIO RIBAS - IIER</option>
+                      <option value="30">(30) - INST.LAURO S. LIMA - ILSL</option>
+                      <option value="39">(39) - INST.PASTEUR</option>
+                      <option value="77">(77) - INST.PAULISTA GERIATRIA - IPGG</option>
+                      <option value="32">(32) - INST.SAÚDE</option>
+                      <option value="1">(01) - SS</option>
+                      <option value="26">(26) - SUCEN</option>
+                      <option value="2">(02) - Z-CCD 2009</option>
+                   </select>
+                </div>
+                <!-- Settings -->
+             </div>
+          </div>
+          <!-- /Account Area and Settings -->
+       </div>
+    </div>
+ </div>
+ <div class="main-container container-fluid">
+    <div class="page-container">
+       <div class="page-sidebar" [ngClass]="{'menu-compact':isSideBarCollapsed}">
+          <div class="sidebar-header-wrapper">
+             <input type="text" class="searchinput">
+             <i class="searchicon fa fa-search"></i>
+          </div>
+          <ul class="nav sidebar-menu">
+             <li *ngFor="let menu of menus" [ngClass]='{"open":menu.isOpen}'>                        
+             <a [routerLink]='' class="menu-dropdown" (click)='toogleOpen(menu)'>
+             <i class="menu-icon fa" [ngClass]="menu.icon"></i>
+             <span class="menu-text"> {{menu.descricao}} </span>
+             <i class="menu-expand"></i>
+             </a>            
+             <ul class="submenu" *ngIf="menu.subMenus !== null" [ngClass]='{"show":menu.isOpen,"hide":!menu.isOpen}'>           
+             <li *ngFor="let subMenu of menu.subMenus">
+                <a  [routerLink]="subMenu.link">
+                <span class="menu-text">{{subMenu.descricao}} </span>
+                </a>
+             </li>
+          </ul>
+          </li>
+          </ul>
+       </div>
+       <div class="page-content">
+          <div class="page-breadcrumbs">
+             <prodesp-breadcrumb></prodesp-breadcrumb>
+          </div>
+          <prodesp-titlebar></prodesp-titlebar>
+          <div class="page-body">
+            <router-outlet></router-outlet>
+          </div>
+       </div>
+    </div>
+ </div>

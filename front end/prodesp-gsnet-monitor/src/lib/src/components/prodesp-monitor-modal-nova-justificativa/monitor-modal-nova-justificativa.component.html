@@ -1,0 +1,93 @@
+<prodesp-modal [title]='title' [closeButtonText]='closeButtonText' [confirmButtonText]='confirmButtonText' [modalData]='novaJustificativa'
+    [showConfirmButton]='showConfirmButton' [isClickDisabled]='Acao.errors || Motivo.errors || MotivoJustificativa.errors || Acao.errors' (onConfirm)='salvarNovaJustificativa()'
+    (onClose)='closeModal()'>
+    <div class="row">
+        <div id="registration-form" class="form-horizontal" style="margin:5px;">
+            <form role="form">
+                <div class="col-xs-12">
+                    <div class="form-title">
+                        Motivos
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <div class="">
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail2">Motivo:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <select id="motivosDrop" required #Motivo='ngModel' name="Motivo" [(ngModel)]='novaJustificativa.IdMotivo' (change)='onMotivoChange($event.target.value)'
+                                        [attr.value]='motivoSelecionado' class="col-xs-12 input-xs">
+                                        <option *ngFor='let a of motivos' [selected]="motivoSelecionado.Id == a.Id" [ngValue]='a.Id'>{{a.Nome}}</option>
+                                    </select>
+                                </div>
+                                <div [hidden]='!motivoSelecionado.PodeEditarJustificativa'>
+                                    <div class="col-xs-3" style="margin-top:3px">
+                                        <label for="exampleInputEmail2">Justificativa:</label>
+                                    </div>
+                                    <div class="col-xs-9" style="margin-top:3px">
+                                        <span class="input-icon icon-right">
+                                            <textarea [required]='motivoSelecionado.JustificativaObrigatoria' [disabled]='codTipoJustificativa !== codSetor' [(ngModel)]='novaJustificativa.MotivoJustificativa'
+                                                [disabled]='codTipoJustificativa !== codSetor' [ngModelOptions]="{ standalone: true }"
+                                                [attr.value]='novaJustificativa.MotivoJustificativa' #MotivoJustificativa='ngModel'
+                                                class="form-control input-xs" rows="4"></textarea>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-title">
+                        Ações
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <div class="form-group">
+
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail2">Ações:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <select required (change)='onAcaoChange($event.target.value)' name="Acao" #Acao='ngModel' [disabled]='codTipoJustificativa !== codSetor'
+                                        [(ngModel)]='novaJustificativa.IdAcao' [ngModelOptions]="{ standalone: true }" [attr.value]='acaoSelecionado'
+                                        class="col-xs-12 input-xs">
+                                        <option *ngFor='let a of acoes' [ngValue]='a.Id' [selected]='a.Id == acaoSelecionado.Id'>{{a.Nome}}</option>
+                                    </select>
+                                </div>
+                                <div [hidden]='!acaoSelecionado.PodeEditarJustificativa'>
+                                    <div class="col-xs-3" style="margin-top:3px">
+                                        <label for="exampleInputEmail2">Justificativa:</label>
+                                    </div>
+                                    <div class="col-xs-9" style="margin-top:3px">
+                                        <span class="input-icon icon-right">
+                                            <textarea #AcaoJustificativa='ngModel' [required]="acaoSelecionado.JustificativaObrigatoria" [disabled]='codTipoJustificativa !== codSetor'
+                                                [(ngModel)]='novaJustificativa.AcaoJustificativa' [ngModelOptions]="{ standalone: true }"
+                                                [attr.value]='novaJustificativa.AcaoJustificativa' class="form-control input-xs"
+                                                rows="4"></textarea>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-12" *ngIf="(Motivo.errors && (Motivo.dirty || Motivo.touched)) || (MotivoJustificativa.errors && (MotivoJustificativa.dirty || MotivoJustificativa.touched))"
+                        class="alert alert-danger">
+                        <div [hidden]="!Motivo.errors.required || !MotivoJustificativa.errors.required">
+                            Preencha os dados do motivo
+                        </div>
+                    </div>
+                    <div class="col-xs-12" *ngIf="(Acao.errors && (Acao.dirty || Acao.touched)) || (AcaoJustificativa.errors && (AcaoJustificativa.dirty || AcaoJustificativa.touched))" class="alert alert-danger">
+                        <div [hidden]="!Acao.errors.required || !AcaoJustificativa.errors.required">
+                            Preencha os dados da ação
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</prodesp-modal>

@@ -1,0 +1,7 @@
+<prodesp-modal [showConfirmButton]='showConfirmButton'  [closeButtonText] ='closeButtonText'  [confirmButtonText] ='confirmButtonText'  
+  [title]='title' 
+  (onClose)='closeModal()' 
+  (onConfirm)='confirm($event)'>
+  <p> {{ text }}
+  </p> 
+</prodesp-modal>

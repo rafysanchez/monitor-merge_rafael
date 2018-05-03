@@ -1,0 +1,19 @@
+<!-- <ul class="breadcrumb">
+  <li><a routerLink="" class="fa fa-home">Home</a></li>
+  <li *ngFor="let breadcrumb of breadcrumbs">
+    <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+  </li>
+</ul> -->
+<!-- <ul class="breadcrumb" id="brand-crumb">
+    <li><i class="fa fa-home"></i><a [routerLink]=''>Home</a></li>
+    <li *ngFor="let breadcrumb of breadcrumbs" class="active">{{ breadcrumb.label }}</li>
+ </ul> -->
+
+ <ol class="breadcrumb">
+    <!-- <li><a routerLink="" class="breadcrumb">Home</a></li> -->
+    <li *ngFor="let breadcrumb of breadcrumbs; let last = last; let first = first">
+      <i *ngIf='first' class="fa" [ngClass]='breadcrumb.icon'></i>
+      <a *ngIf='!last' [routerLink]="[breadcrumb.url, breadcrumb.params]">{{breadcrumb.label}}</a>
+      <span *ngIf='last'>{{breadcrumb.label}}</span>
+    </li>
+  </ol>

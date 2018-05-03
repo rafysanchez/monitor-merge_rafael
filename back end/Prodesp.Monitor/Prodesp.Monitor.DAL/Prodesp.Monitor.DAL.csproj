@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{629189AD-A637-43F8-8EFC-286AE476420F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prodesp.Monitor.DAL</RootNamespace>
+    <AssemblyName>Prodesp.Monitor.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.5.4.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Core.NHibernate.BLL, Version=2.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.NHibernate.Business.2.0.5\lib\net45\Prodesp.Core.NHibernate.BLL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Core.NHibernate.DAL, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.NHibernate.DataAccess.1.0.5\lib\net45\Prodesp.Core.NHibernate.DAL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Core.DAL, Version=1.0.0.49, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.DataAccess.2.0.3\lib\net45\Prodesp.Gsnet.Core.DAL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Core.TO, Version=1.0.0.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Gsnet.Core.TO.1.0.35\lib\net45\Prodesp.Gsnet.Core.TO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Framework, Version=1.0.0.119, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.Framework.2.0.2\lib\net45\Prodesp.Gsnet.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Framework.Expression, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.Framework.Expression.2.0.3\lib\net45\Prodesp.Gsnet.Framework.Expression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Framework.Log, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Core.Framework.Log.2.0.0\lib\net45\Prodesp.Gsnet.Framework.Log.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\Schema\GsnetBootstrapper.cs" />
+    <Compile Include="DataBase\Util\ConnectionStringToken.cs" />
+    <Compile Include="Mapper\EmpenhoMapper.cs" />
+    <Compile Include="Mapper\EmpenhoMvtoMapper.cs" />
+    <Compile Include="Mapper\EventoMapper.cs" />
+    <Compile Include="Mapper\EventoMvtoMapper.cs" />
+    <Compile Include="Mapper\GestorMapper.cs" />
+    <Compile Include="Mapper\ItemMapper.cs" />
+    <Compile Include="Mapper\MensagemWsMapper.cs" />
+    <Compile Include="Mapper\ParametrosMapper.cs" />
+    <Compile Include="Mapper\ParamProgMapper.cs" />
+    <Compile Include="Mapper\ProcessoFilaMapper.cs" />
+    <Compile Include="Mapper\ProcessoMapper.cs" />
+    <Compile Include="Mapper\ProgramaSaudeMapper.cs" />
+    <Compile Include="Mapper\TpAcaoMapper.cs" />
+    <Compile Include="Mapper\TpMotivoMapper.cs" />
+    <Compile Include="Model\Empenho.cs" />
+    <Compile Include="Model\EmpenhoMvto.cs" />
+    <Compile Include="Model\Evento.cs" />
+    <Compile Include="Model\EventoMvto.cs" />
+    <Compile Include="Model\Gestor.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\MensagemWs.cs" />
+    <Compile Include="Model\Parametros.cs" />
+    <Compile Include="Model\ParamProg.cs" />
+    <Compile Include="Model\Processo.cs" />
+    <Compile Include="Model\ProcessoFila.cs" />
+    <Compile Include="Model\ProgramaSaude.cs" />
+    <Compile Include="Model\TpAcao.cs" />
+    <Compile Include="Model\TpMotivo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prodesp.Monitor.Framework.Extension\Prodesp.Monitor.Framework.Extension.csproj">
+      <Project>{168b03bb-f887-440b-9508-3d33180e1195}</Project>
+      <Name>Prodesp.Monitor.Framework.Extension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prodesp.Monitor.TO\Prodesp.Monitor.TO.csproj">
+      <Project>{d642289f-a79a-4edd-b597-b7848618ae13}</Project>
+      <Name>Prodesp.Monitor.TO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,52 @@
+<prodesp-modal [title]='title' [showConfirmButton]='showConfirmButton' [closeButtonText]='closeButtonText' [confirmButtonText]='confirmButtonText'
+    [isClickDisabled]='Programa.errors' [modalData]='filtros' (onClose)='closeModal()' (onConfirm)='confirm(filtros)'>
+    <form role="form" id="frmFilter" name="frmFilter" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">Programa</label>
+            <div class="col-sm-10">
+                <div class="">
+                    <select [(ngModel)]='filtros.IdPrograma' required #Programa='ngModel' [ngModelOptions]="{ standalone: true }" [attr.value]='filtros.IdPrograma'
+                        class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let t of programasSaude' [selected]='filtros.IdPrograma === t.Id' [ngValue]="t.Id"> {{t.Descricao}}</option>
+                    </select>                  
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">Situação do Saldo</label>
+            <div class="col-sm-10">
+                <div class="">
+                    <select [(ngModel)]='filtros.TipoRegra' #TipoRegra [ngModelOptions]="{ standalone: true }" [attr.value]='filtros.TipoRegra'
+                        class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let s of situacoesSaldo' [ngValue]="s.Id"> {{s.Descricao}}</option>
+                    </select>            
+                </div>
+            </div>
+        </div>
+        <div class="space-4"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">Situação do Justificativa</label>
+            <div class="col-sm-10">
+                <div class="">
+                    <select *ngIf="justificador == 1" [(ngModel)]='filtros.JustificadoFME' #Justificado [ngModelOptions]="{ standalone: true }"
+                        [attr.value]='filtros.SituacaoJustificativa' class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let s of situacaoJustificativa' [ngValue]="s.Id"> {{s.Descricao}}</option>
+                    </select>
+                    <select *ngIf="justificador == 2" [(ngModel)]='filtros.JustificadoCAF' #Justificado [ngModelOptions]="{ standalone: true }"
+                        [attr.value]='filtros.SituacaoJustificativa' class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let s of situacaoJustificativa' [ngValue]="s.Id"> {{s.Descricao}}</option>
+                    </select>
+                    <select *ngIf="justificador == 3" [(ngModel)]='filtros.JustificadoCMP' #Justificado [ngModelOptions]="{ standalone: true }"
+                        [attr.value]='filtros.SituacaoJustificativa' class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let s of situacaoJustificativa' [ngValue]="s.Id"> {{s.Descricao}}</option>
+                    </select>                
+                </div>
+            </div>
+        </div>
+        <div *ngIf="Programa.errors && (Programa.dirty || Programa.touched)" class="alert alert-danger">
+            <div [hidden]="!Programa.errors.required">
+                Selecione um programa de saúde
+            </div>
+        </div>
+    </form>
+</prodesp-modal>

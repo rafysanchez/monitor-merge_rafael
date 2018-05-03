@@ -1,0 +1,4 @@
+input[type=checkbox].checkbox-slider ~ .text:before {
+    content: "Sim\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0Não" /*rtl:"OFF\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0ON"*/;
+    color:#000;
+  }

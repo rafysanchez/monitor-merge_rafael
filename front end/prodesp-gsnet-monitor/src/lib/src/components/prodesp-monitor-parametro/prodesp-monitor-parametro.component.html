@@ -1,0 +1,35 @@
+<prodesp-table-widget [page]='page' [perPage]='perPage' [showPerPage]='tableConfig.showPerPage' (onSearchClicked)='onSearch($event)' (onPerPageChanged)='perPageChanged($event)'>
+    <ng-template ngWidgetActions>
+      <div>
+       
+          <select [(ngModel)]='selectedTipo'  class="input-xs">   
+              <option value=0 selected> Selecione o Tipo</option>                                 
+              <option *ngFor='let t of comboData' [ngValue]="t.Tipo" > {{t.Descricao}}</option>                        
+            </select> 
+          <a class="btn btn-primary shiny btn-xs" (click)="onAdd(selectedTipo)" > 
+              <i class='fa fa-plus'></i>Cadastrar
+          </a>  
+      </div>
+     
+   
+      </ng-template>
+    <ng-template ngWidgetBody>
+        <prodesp-table [tableOptions]="tableConfig" class="table-responsive">
+          <tr *ngFor='let item of tableData'>
+            <td>{{item.NomePrograma}}</td>
+            <td>{{item.NomeTipoParametro}} </td>
+            <td class='descricao'>{{item.Vigencia}}</td>          
+            <td><span class="label" [ngClass]='{"label-success": item.FlagAtivo, "label-danger": !item.FlagAtivo}'>{{ decodeSituacao(item) }}</span></td>  
+            <td class="text-left">
+                <a class="btn btn-xs btn-info" (click)='onEdit(item)' ><i class="fa fa-edit"></i> Editar </a> 
+                <a *ngIf='item.TpParametro != "2"' class="btn btn-xs btn-info" (click)='onDetalhe(item)'>
+                  <i class="fa fa-search"></i> Detalhe </a>
+            </td>
+          </tr>        
+        </prodesp-table>
+      <prodesp-table-pagination class='row' [totalPages]='totalPages' [page]='page' [perPage]='perPage' (onPageChange)='pageChanges($event)'>
+              
+      </prodesp-table-pagination>
+    </ng-template>
+    
+  </prodesp-table-widget>     

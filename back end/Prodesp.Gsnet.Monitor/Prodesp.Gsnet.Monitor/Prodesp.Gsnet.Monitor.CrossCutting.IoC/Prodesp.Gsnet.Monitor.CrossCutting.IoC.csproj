@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E569AA89-BD83-453F-8FBC-7ABCEEA603EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prodesp.Gsnet.Monitor.CrossCutting.IoC</RootNamespace>
+    <AssemblyName>Prodesp.Gsnet.Monitor.CrossCutting.IoC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IoC.cs" />
+    <Compile Include="Modules\ApplicationModule.cs" />
+    <Compile Include="Modules\CrossCuttingModule.cs" />
+    <Compile Include="Modules\DomainModule.cs" />
+    <Compile Include="Modules\InfraModule.cs" />
+    <Compile Include="Modules\RepositoryModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prodesp.Gsnet.Monitor.Application\Prodesp.Gsnet.Monitor.Application.csproj">
+      <Project>{93C9D30F-6F66-4DAD-A1B1-5FFC84F1E7C0}</Project>
+      <Name>Prodesp.Gsnet.Monitor.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prodesp.Gsnet.Monitor.CrossCutting.TO.Mapper\Prodesp.Gsnet.Monitor.CrossCutting.TO.Mapper.csproj">
+      <Project>{C34AEDFF-A8E1-42CC-BD89-B892F1708331}</Project>
+      <Name>Prodesp.Gsnet.Monitor.CrossCutting.TO.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prodesp.Gsnet.Monitor.Domain\Prodesp.Gsnet.Monitor.Domain.csproj">
+      <Project>{EACB4320-7984-49E3-8A99-E02A50ED6714}</Project>
+      <Name>Prodesp.Gsnet.Monitor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prodesp.Gsnet.Monitor.Infra.Data.EF\Prodesp.Gsnet.Monitor.Infra.Data.EF.csproj">
+      <Project>{B8936779-F664-4EE6-8E39-6B064A4C98A2}</Project>
+      <Name>Prodesp.Gsnet.Monitor.Infra.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prodesp.Gsnet.Monitor.Infra.Data.Repository\Prodesp.Gsnet.Monitor.Infra.Data.Repository.csproj">
+      <Project>{48A68C5E-3571-41FD-B00B-E92EE6768146}</Project>
+      <Name>Prodesp.Gsnet.Monitor.Infra.Data.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,22 @@
+<div class="page-sidebar" [ngClass]="{'menu-compact':isSideBarCollapsed}">
+  <div class="sidebar-header-wrapper">
+     <input type="text" class="searchinput">
+     <i class="searchicon fa fa-search"></i>
+  </div>
+  <ul class="nav sidebar-menu">
+     <li *ngFor="let menu of menus" [ngClass]='{"open":menu.isOpen}'>                        
+     <a [routerLink]='' class="menu-dropdown" (click)='toogleOpen(menu)'>
+     <i class="menu-icon fa" [ngClass]="menu.icon"></i>
+     <span class="menu-text"> {{menu.descricao}} </span>
+     <i class="menu-expand"></i>
+     </a>            
+     <ul class="submenu" *ngIf="menu.subMenus !== null" [ngClass]='{"show":menu.isOpen,"hide":!menu.isOpen}'>   
+     <li *ngFor="let subMenu of menu.subMenus">
+        <a  [routerLink]="subMenu.link">
+        <span class="menu-text">{{subMenu.descricao}} </span>
+        </a>
+     </li>
+  </ul>
+  </li>
+  </ul>
+</div>

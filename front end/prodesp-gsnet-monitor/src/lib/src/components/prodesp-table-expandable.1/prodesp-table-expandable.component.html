@@ -1,0 +1,157 @@
+<div class="table-responsive" *ngIf="tableData.length">
+    <prodesp-table-pagination [totalPages]='totalPages' [page]='page' [perPage]='perPage' (onPageChange)='pageChanges($event)'>
+
+    </prodesp-table-pagination>
+    <table class="table table-striped" id='tbItensMonitorados'>
+        <thead>
+            <tr>
+                <th colspan="15" *ngIf='selecteds'>Registros selecionados : {{ selecteds }}</th>
+            </tr>
+            <tr role="row">
+                <th class="header">
+
+                </th>
+
+                <th class="header">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();">
+                            <span class="text"></span>
+                        </label>
+                    </div>
+                </th>
+                <th  *ngFor='let c of tableOptions.columnsDefinition' (click)="sortHeaderClick(c.SortColumnId)" [ngClass]="{ 'sorting': isSorting(c.SortColumnId), 'sorting_asc': isSortAsc(c.SortColumnId), 'sorting_desc': isSortDesc(c.SortColumnId) }">
+                    <span>{{ c.DisplayName }}</span>
+                </th>
+
+                <!-- <th style="text-align:center;" class="header">
+                    <p>Grupo de
+                        <br> Recursos</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p> Local </p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Código</p>
+                </th>
+                <th class="sorting col-xs-2 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Item</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Unid.
+                        <br> Distribuição</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Saldo
+                        <br> Disponível</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Autônomia
+                        <br> (Dias)</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Dt. Última
+                        <br> Fatura</p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Qtd. Última
+                        <br> Fatura </p>
+                </th>
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Dt. Último
+                        <br> Consumo </p>
+                </th>
+                <th class="sorting col-xs-1 header headerSortDown" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Justificado </p>
+                </th>                
+                <th class="sorting col-xs-1 header" tabindex="0" aria-controls="editabledatatable" aria-label="">
+                    <p>Tipo Alerta </p>
+                </th>
+                <th class="col-xs-3 header">
+                    <p>Ações</p>
+                </th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <ng-template ngFor let-row [ngForOf]="tableData" let-i="index">
+                <tr>
+                    <td>
+                        <a id="btn-plus-linha1" [routerLink]='' (click)='toggleExpand(row)'>
+                            <i class="fa row-details " [ngClass]='{"fa-minus-square-o": row.expanded, "fa-plus-square-o": !row.expanded }' id="icone-plus-linha1"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" [(ngModel)]='row.selected' (change)="checkIfAllSelected();">
+                                <span class="text"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="text-align-center">
+                        <span class="label label-success">{{row.data.GrupoRecursos}}</span>
+                    </td>
+                    <td class="text-align-center">{{row.data.Local}}</td>
+                    <td class="text-align-center">{{row.data.Codigo}}</td>
+                    <td> {{row.data.Nome}}</td>
+                    <td class="text-align-center">{{row.data.UnidadeDistribuicao}}</td>
+                    <td class="text-align-center">
+                        <strong [status]='row.data.SaldoDisponivel > 0'>{{row.data.QuantidadeSaldoDisponivel}}</strong>
+                    </td>
+                    <td class="text-align-center ">
+                        <strong [status]='row.data.DiasAutonomia > 0'>{{row.data.QuantidadeDiasAutonomia}}</strong>
+                    </td>
+                    <td class="text-align-center">{{row.data.DataUltimaFatura}}</td>
+                    <td class="text-align-center">{{row.data.QuantidadeUltimaFatura}}</td>
+                    <td class="text-align-center">{{row.data.DataUltimoConsumo}}</td>
+                    <td class="text-align-center">
+                        <prodesp-fluxo-justificativa [fluxo]="row.data.FluxoJustificacao"></prodesp-fluxo-justificativa>
+                    </td>
+
+                    <!--            <td class="text-align-center"><span class="label label-success">Sim</span></td> -->
+
+                    <td> {{ row.data.TipoRegra }}</td>
+                    <td>
+                        <a [routerLink]='' class=" btn btn-primary btn-xs" (click)="viewHistorico(row)">
+                            <i class="fa fa-file"></i> Histórico </a>
+
+                    </td>
+                </tr>
+                <tr *ngIf='row.expanded'>
+                    <td colspan="15">
+                        <prodesp-justificativa [idItem]='row.data.Id' [idItemGsnet]='row.data.IdItemGsnet' [motivos]='motivos' [acoes]='acoes'></prodesp-justificativa>
+                    </td>
+                </tr>
+            </ng-template>
+        </tbody>
+    </table>
+    <prodesp-table-pagination [totalPages]='totalPages' [page]='page' [perPage]='perPage' (onPageChange)='pageChanges($event)'>
+
+    </prodesp-table-pagination>
+</div>
+<div *ngIf="!tableData.length" class="col-xs-12" class="table-responsive">
+
+    <div class="col-xs-8 col-xs-offset-4" style="filter:alpha(opacity=50); opacity:0.5;">
+
+        <span *ngIf="!noDataFound" style="font-size:1em !important;vertical-align: middle;line-height: 150px;">
+            <span>
+                <i style="font-size:6em;top:15px;position:relative" class="fa fa-search">
+                </i> Para começar, informe os dados na pesquisa :)
+            </span>
+
+        </span>
+        <span *ngIf="noDataFound" style="font-size:1em !important;vertical-align: middle;line-height: 150px;">
+
+            <span *ngIf='!errorMessage'>
+                <i style="font-size:6em;top:15px;position:relative" class="fa fa-exclamation-circle">
+                </i> Nenhum resultado encontrado para sua pesquisa
+            </span>
+            <span *ngIf='errorMessage'>
+                <i style="font-size:6em;top:15px;position:relative;" class="fa fa-times-circle">
+                </i>{{errorMessage}}
+            </span>
+        </span>
+
+
+    </div>
+</div>

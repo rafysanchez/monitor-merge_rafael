@@ -1,0 +1,141 @@
+
+<prodesp-modal [title]='title' [closeButtonText]='closeButtonText' 
+[confirmButtonText]='confirmButtonText' [isClickDisabled]= 'DtInicial.errors ||NomePrograma.errors || QtdeMeses.errors' 
+[modalData] = 'novoParametro' [showConfirmButton]='showConfirmButton' 
+(onConfirm)='confirm($event)' (onClose)='closeModal()'>
+
+<div class="row" ></div>
+<div class="row">
+  <div class="col-xs-12">
+    <div id="builder"></div>
+      <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div id="inf-basicas">
+              <div class="row">
+                    <div class="col-xs-12" style="margin-top:5px;">
+                            <div class="col-xs-8">
+                                <label>Nome do Programa:</label>
+                            </div>
+                            <div class="col-xs-4">                        
+                                    <select #NomePrograma = 'ngModel'   [(ngModel)]='novoParametro.IdProgramaMonitor' name="NomePrograma" [ngModelOptions]="{ standalone: true }" name="NomePrograma" 
+                                    [attr.value]='novoParametro.IdProgramaMonitor'  class="form-control col-xs-12 input-xs" required>                                    
+                                            <option *ngFor='let t of comboData' [ngValue]="t.IdProgramaSaude" [selected]="novoParametro.IdProgramaMonitor==t.IdProgramaSaude">{{t.IdProgramaSaude}} - {{t.NomePrograma}}</option>                          
+                                    </select>  
+                            </div>
+                    </div>
+<!-- Inicio area comum -->
+<div> 
+                  <div class="col-xs-12" style="margin-top:5px;">
+                      <div class="col-xs-8">
+                          <label>Quantidade de meses considerado para cálculo do consumo:</label>
+                      </div>
+                      <div class="col-xs-4">                        
+                        <input type="number" name = "QtdeMeses"   required class="form-control input-xs" #QtdeMeses = 'ngModel'  
+                         [(ngModel)]='novoParametro.QtdeMeses' 
+                        [ngModelOptions]="{ standalone: true }" name="Tipo"  [attr.value]='novoParametro.QtdeMeses' >   
+                      </div>
+                  </div>
+
+                <div *ngIf='tipoPrograma == 1' class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label class="control-label">Autonomia: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" name = "Autonomia" required maxlength = 3 class="form-control input-xs" #Autonomia = 'ngModel'  [(ngModel)]='novoParametro.Autonomia' >
+                    </div>
+                </div>
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label class="control-label">Apresentação: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <select class="form-control col-xs-12 input-xs" #Apresentacao ='ngModel'  [(ngModel)]='novoParametro.Apresentacao'>                                    
+                            <option value='<'> Menor</option>   
+                            <option value = '<='> Menor ou igual a</option>                       
+                          </select> 
+                    </div>
+                </div>
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label>Considerar somente meses como consumo maior que zero ?</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>
+                            <input class="checkbox-slider colored-blue"  type="checkbox" #ConsumoMensal ='ngModel'  [(ngModel)]='novoParametro.ConsumoMensal'>
+                            <span class="text"></span>
+                        </label>
+                    </div>
+                </div>     
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label class="control-label">Fórmula de cálculo do consumo: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="control-group" >
+                            <div class="radio" >
+                                <label>
+                                    <input name="FormulaCalculo" class="colored-blue" type="radio" value = '1' #FormulaCalculo ='ngModel'  [(ngModel)]='novoParametro.FormulaCalculo'>
+                                    <span class="text"> CMM</span>
+                                </label>
+                            </div>
+        
+                            <div class="radio" >
+                                <label>
+                                    <input name="FormulaCalculo" class="colored-blue" type="radio" value = '2' #FormulaCalculo ='ngModel'  [(ngModel)]='novoParametro.FormulaCalculo'>
+                                    <span class="text"> Maior Consumo</span>
+                                </label>
+                            </div>
+        
+                            <div class="radio" >
+                                <label>
+                                    <input name="FormulaCalculo" class="colored-blue" type="radio" value = '3' #FormulaCalculo ='ngModel'  [(ngModel)]='novoParametro.FormulaCalculo'>
+                                    <span class="text"> Menor Consumo</span>
+                                </label>
+                            </div>
+        
+                            <div class="radio">
+                                <label>
+                                    <input name="FormulaCalculo" class="colored-blue" type="radio" value = '4' #FormulaCalculo ='ngModel'  [(ngModel)]='novoParametro.FormulaCalculo'>
+                                    <span class="text"> Último Consumo</span>
+                                </label>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+</div>
+<!--   final area comum -->           
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label class="control-label">Vigência Inicial: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" name = "DtInicial" required class="form-control input-xs" #DtInicial  = 'ngModel'  [(ngModel)]='novoParametro.DtInicial' maxlength = 10>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label class="control-label">Vigência Final: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" name = "DtFinal"  class="form-control input-xs" #DtFinal  = 'ngModel'  [(ngModel)]='novoParametro.DtFinal' maxlength = 10>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12" style="margin-top:5px;">
+                    <div class="col-xs-8">
+                        <label>Ativo:</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>
+                            <input class="checkbox-slider colored-blue"  type="checkbox" #Ativo  = 'ngModel'  [(ngModel)]='novoParametro.FlagAtivo'>
+                            <span class="text"></span>
+                        </label>
+                    </div>
+                </div>
+
+              </div>    
+          </div>
+      </div>
+  </div>
+</div>  
+</prodesp-modal>

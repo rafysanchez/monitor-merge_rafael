@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D642289F-A79A-4EDD-B597-B7848618AE13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prodesp.Monitor.TO</RootNamespace>
+    <AssemblyName>Prodesp.Monitor.TO</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prodesp.Gsnet.Core.TO, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prodesp.Gsnet.Core.TO.2.0.2\lib\net45\Prodesp.Gsnet.Core.TO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SwaggerWcf, Version=0.1.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SwaggerWcf.0.1.15\lib\net45\SwaggerWcf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\EmpenhoMvto\EmpenhoMvtoSingleRequest.cs" />
+    <Compile Include="Request\EmpenhoMvto\EmpenhoMvtoSingleRequestData.cs" />
+    <Compile Include="Request\Empenho\EmpenhoSingleRequest.cs" />
+    <Compile Include="Request\Empenho\EmpenhoSingleRequestData.cs" />
+    <Compile Include="Request\EventoMvto\EventoMvtoSingleRequest.cs" />
+    <Compile Include="Request\EventoMvto\EventoMvtoSingleRequestData.cs" />
+    <Compile Include="Request\Evento\EventoSingleRequest.cs" />
+    <Compile Include="Request\Evento\EventoSingleRequestData.cs" />
+    <Compile Include="Request\Gestor\GestorSingleRequest.cs" />
+    <Compile Include="Request\Gestor\GestorSingleRequestData.cs" />
+    <Compile Include="Request\Item\ItemSingleRequest.cs" />
+    <Compile Include="Request\Item\ItemSingleRequestData.cs" />
+    <Compile Include="Request\MensagemWs\MensagemWsSingleRequest.cs" />
+    <Compile Include="Request\MensagemWs\MensagemWsSingleRequestData.cs" />
+    <Compile Include="Request\Parametros\ParametrosSingleRequest.cs" />
+    <Compile Include="Request\Parametros\ParametrosSingleRequestData.cs" />
+    <Compile Include="Request\ParamProg\ParamProgSingleRequest.cs" />
+    <Compile Include="Request\ParamProg\ParamProgSingleRequestData.cs" />
+    <Compile Include="Request\ProcessoFila\ProcessoFilaSingleRequest.cs" />
+    <Compile Include="Request\ProcessoFila\ProcessoFilaSingleRequestData.cs" />
+    <Compile Include="Request\Processo\ProcessoSingleRequest.cs" />
+    <Compile Include="Request\Processo\ProcessoSingleRequestData.cs" />
+    <Compile Include="Request\ProgramaSaude\ProgramaSaudeSingleRequest.cs" />
+    <Compile Include="Request\ProgramaSaude\ProgramaSaudeSingleRequestData.cs" />
+    <Compile Include="Request\TpAcao\TpAcaoSingleRequest.cs" />
+    <Compile Include="Request\TpAcao\TpAcaoSingleRequestData.cs" />
+    <Compile Include="Request\TpMotivo\TpMotivoSingleRequest.cs" />
+    <Compile Include="Request\TpMotivo\TpMotivoSingleRequestData.cs" />
+    <Compile Include="Response\EmpenhoMvto\EmpenhoMvtoListResponse.cs" />
+    <Compile Include="Response\EmpenhoMvto\EmpenhoMvtoListResponseData.cs" />
+    <Compile Include="Response\Empenho\EmpenhoListResponse.cs" />
+    <Compile Include="Response\Empenho\EmpenhoListResponseData.cs" />
+    <Compile Include="Response\EventoMvto\EventoMvtoListResponse.cs" />
+    <Compile Include="Response\EventoMvto\EventoMvtoListResponseData.cs" />
+    <Compile Include="Response\Evento\EventoListResponse.cs" />
+    <Compile Include="Response\Evento\EventoListResponseData.cs" />
+    <Compile Include="Response\Gestor\GestorListResponse.cs" />
+    <Compile Include="Response\Gestor\GestorListResponseData.cs" />
+    <Compile Include="Response\Item\ItemListResponse.cs" />
+    <Compile Include="Response\Item\ItemListResponseData.cs" />
+    <Compile Include="Response\MensagemWs\MensagemWsListResponse.cs" />
+    <Compile Include="Response\MensagemWs\MensagemWsListResponseData.cs" />
+    <Compile Include="Response\Parametros\ParametrosListResponse.cs" />
+    <Compile Include="Response\Parametros\ParametrosListResponseData.cs" />
+    <Compile Include="Response\ParamProg\ParamProgListResponse.cs" />
+    <Compile Include="Response\ParamProg\ParamProgListResponseData.cs" />
+    <Compile Include="Response\ProcessoFila\ProcessoFilaListResponse.cs" />
+    <Compile Include="Response\ProcessoFila\ProcessoFilaListResponseData.cs" />
+    <Compile Include="Response\Processo\ProcessoListResponse.cs" />
+    <Compile Include="Response\Processo\ProcessoListResponseData.cs" />
+    <Compile Include="Response\ProgramaSaude\ProgramaSaudeListResponse.cs" />
+    <Compile Include="Response\ProgramaSaude\ProgramaSaudeListResponseData.cs" />
+    <Compile Include="Response\TpAcao\TpAcaoListResponse.cs" />
+    <Compile Include="Response\TpAcao\TpAcaoListResponseData.cs" />
+    <Compile Include="Response\TpMotivo\TpMotivoListResponse.cs" />
+    <Compile Include="Response\TpMotivo\TpMotivoListResponseData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

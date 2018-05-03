@@ -1,0 +1,6 @@
+<div class="row" style="min-height:30px" *ngIf="isLoading">
+    <div class="loading col-md-1 col-md-offset-6" style="margin-top:15px">Loading&#8230;</div>
+</div> 
+<div *ngIf="!isLoading">
+    <ng-content></ng-content>
+</div>  

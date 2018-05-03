@@ -1,0 +1,82 @@
+<prodesp-modal [title]='title' [closeButtonText]='closeButtonText' 
+[confirmButtonText]='confirmButtonText' 
+[modalData] = 'novaJustificativa'
+[showConfirmButton]='showConfirmButton' (onConfirm)='confirm($event)' (onClose)='closeModal()'>
+<div class="row">
+   <div id="registration-form" class="form-horizontal" style="margin:5px;">
+      <form role="form">        
+        <div class="form-title">
+            Programas de Saúde
+          </div>
+          <div class="">
+            <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="col-xs-3">
+                      <label for="exampleInputEmail2">Programa de Saúde:</label>
+                  </div>
+                  <div class="col-xs-9">
+                      <select [(ngModel)]='programaSaude.Id' [ngModelOptions]="{ standalone: true }" [attr.value]='programaSaude' class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">                                    
+                          <option *ngFor='let t of programasSaude' [ngValue]="t.Id"> {{t.Descricao}}</option>                           
+                        </select>                                                  
+                  </div>                   
+                </div>
+            </div>
+          </div>
+         <div class="form-title">
+            Motivos
+         </div>
+         <div class="">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <div class="col-xs-3">
+                     <label for="exampleInputEmail2">Motivo:</label>
+                  </div>
+                  <div class="col-xs-9">
+                     <select [(ngModel)]='novaJustificativa.IdMotivo' [ngModelOptions]="{ standalone: true }" [attr.value]='novaJustificativa.motivo' class="col-xs-12 input-xs">
+                     <option *ngFor='let a of motivos' [ngValue]='a.Id'>{{a.Descricao}}</option>                                 
+                     </select>
+                  </div>
+                  <div *ngIf='novaJustificativa.motivo.Id === 0'>
+                     <div class="col-xs-3" style="margin-top:3px">
+                        <label for="exampleInputEmail2">Justificativa:</label>
+                     </div>
+                     <div class="col-xs-9" style="margin-top:3px">
+                        <span class="input-icon icon-right">
+                        <textarea class="form-control input-xs" rows="4"></textarea>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="form-title">
+            Ações
+         </div>
+         <div class="">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <div class="col-xs-3">
+                     <label for="exampleInputEmail2">Ações:</label>
+                  </div>
+                  <div class="col-xs-9">
+                     <select [(ngModel)]='novaJustificativa.acao.Id' [ngModelOptions]="{ standalone: true }" [attr.value]='novaJustificativa.acao' class="col-xs-12 input-xs">
+                     <option *ngFor='let a of acoes' [ngValue]='a.Id'>{{a.Descricao}}</option>                                 
+                     </select>
+                  </div>
+                  <div *ngIf='novaJustificativa.acao.Id === 0'>
+                     <div class="col-xs-3" style="margin-top:3px">
+                        <label for="exampleInputEmail2">Justificativa:</label>
+                     </div>
+                     <div class="col-xs-9" style="margin-top:3px">
+                        <span class="input-icon icon-right">
+                        <textarea class="form-control input-xs" rows="4"></textarea>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+</prodesp-modal>

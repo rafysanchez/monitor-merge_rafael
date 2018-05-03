@@ -1,0 +1,6 @@
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\bin\Debug\Prodesp.Monitor.Framework.Extension.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\bin\Debug\Prodesp.Monitor.Framework.Extension.pdb
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\bin\Debug\Prodesp.Gsnet.Framework.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\obj\Debug\Prodesp.Monitor.Framework.Extension.csprojResolveAssemblyReference.cache
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\obj\Debug\Prodesp.Monitor.Framework.Extension.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Framework.Extension\obj\Debug\Prodesp.Monitor.Framework.Extension.pdb

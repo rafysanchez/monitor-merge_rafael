@@ -1,0 +1,32 @@
+<prodesp-monitor-indicadores [indicadores]='monitoramento'></prodesp-monitor-indicadores>
+
+<prodesp-table-widget [page]='page' [showSearchTextBox]='showSearchTextBox' [perPage]='perPage' [showPerPage]='showPerPage' (onSearchClicked)='abrirPesquisa($event)'
+    (onPerPageChanged)='perPageChanged($event)'>
+    <ng-template ngWidgetActions>
+        <a [routerLink]='' *ngIf='noDataFound == false' class="btn btn-primary btn-xs" (click)='toogleExpand()' style="margin-right:6px;">
+            <i class="fa" [ngClass]='{"fa-minus-square-o": expandAll, "fa-plus-square-o": !expandAll }'></i> {{ expandMode }}
+        </a>
+        <a [routerLink]='' *ngIf='noDataFound == false' (click)='abrirJustificarPorPrograma()' class="btn btn-primary btn-xs" style="margin-right:6px;">
+            <i class="fa fa-repeat"></i> Justificar Por Programa
+        </a>
+        <a class="btn btn-primary shiny btn-xs" *ngIf='this.linhasSelecionadas.length > 0' [routerLink]='' (click)="abrirNovaJustificativa()">
+            <i class='fa fa-plus'></i>Nova Justificativa
+        </a>
+        <a [routerLink]='' *ngIf='this.linhasSelecionadas.length > 0' (click)='abrirJustificativaAnterior()' class="btn btn-primary btn-xs"
+            style="margin-right:6px;">
+            <i class="fa fa-repeat"></i> Utilizar anterior
+        </a>
+        <a [routerLink]='' *ngIf='this.linhasSelecionadas.length > 0' (click)='excluirJustificativas()' class="btn btn-danger btn-xs"
+            style="margin-right:6px;">
+            <i class="fa fa-trash"></i> Excluir justificativa(s)
+        </a>
+    </ng-template>
+    <ng-template ngWidgetBody>
+        <prodesp-loader [isLoading]='isLoading'>
+            <prodesp-expandable-table (onSortClicked)='onSortClicked($event)' [tableOptions]='tableOptions' [errorMessage]='errorMessage'
+                [expandAll]='expandAll' [totalPages]='totalPages' [noDataFound]='noDataFound' (onRowsSelected)='rowsSelected($event)'
+                [tableData]='tableData' (onPageChanges)='pageChanges($event)' [page]="page" [perPage]="perPage">
+            </prodesp-expandable-table>
+        </prodesp-loader>
+    </ng-template>
+</prodesp-table-widget>

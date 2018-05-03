@@ -1,0 +1,5 @@
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.BLL\bin\Debug\Prodesp.Monitor.BLL.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.BLL\bin\Debug\Prodesp.Monitor.BLL.pdb
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.BLL\obj\Debug\Prodesp.Monitor.BLL.csprojResolveAssemblyReference.cache
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.BLL\obj\Debug\Prodesp.Monitor.BLL.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.BLL\obj\Debug\Prodesp.Monitor.BLL.pdb

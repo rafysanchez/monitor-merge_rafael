@@ -1,0 +1,6 @@
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\bin\Debug\Prodesp.Monitor.Test.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\bin\Debug\Prodesp.Monitor.Test.pdb
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\obj\Debug\Prodesp.Monitor.Test.csprojResolveAssemblyReference.cache
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\obj\Debug\Prodesp.Monitor.Test.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Test\obj\Debug\Prodesp.Monitor.Test.pdb

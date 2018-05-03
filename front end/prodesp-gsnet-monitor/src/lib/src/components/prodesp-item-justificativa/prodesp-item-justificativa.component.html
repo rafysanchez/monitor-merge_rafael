@@ -1,0 +1,90 @@
+<prodesp-loader [isLoading]='isLoading'>
+    <div class="widget flat radius-bordered font-90" style="margin:5px;">
+        <div class="widget-body">
+            <div id="registration-form" class="form-horizontal" style="margin:5px;">
+                <form role="form">
+                    <div class="form-title">
+                        Motivos:
+                        {{motivo}}
+                    </div>
+                    <div class="">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail2">Motivo:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <select id="motivosDrop" #Motivo='ngModel' (change)='onMotivoChange($event.target.value)' [attr.value]='motivoSelecionado'
+                                        name="Motivo" [(ngModel)]='novaJustificativa.IdMotivo' [disabled]='novaJustificativa.Id > 0 || !podeJustificar'
+                                        [ngModelOptions]="{ standalone: true }" class="col-xs-12 input-xs">
+                                        <option *ngFor='let a of motivos' [selected]="motivoSelecionado.Id == a.Id" [ngValue]='a.Id'>{{a.Nome}}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf='motivoSelecionado.PodeEditarJustificativa'>
+                                    <div class="col-xs-3" style="margin-top:3px">
+                                        <label for="exampleInputEmail2">Justificativa:</label>
+                                    </div>
+                                    <div class="col-xs-9" style="margin-top:3px">
+                                        <span class="input-icon icon-right">
+                                            <textarea [required]="motivoSelecionado.JustificativaObrigatoria" [disabled]='novaJustificativa.Id > 0 || !podeJustificar' [(ngModel)]='novaJustificativa.MotivoJustificativa'
+                                                [disabled]='codTipoJustificativa !== codSetor' [ngModelOptions]="{ standalone: true }"
+                                                [attr.value]='novaJustificativa.MotivoJustificativa' class="form-control input-xs"
+                                                rows="4"></textarea>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-title">
+                        Ações
+                        {{acao}}
+                    </div>
+                    <div class="">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail2">Ações:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <select (change)='onAcaoChange($event.target.value)' name="Acao" #Acao='ngModel' [disabled]='novaJustificativa.Id > 0 || !podeJustificar'
+                                        [(ngModel)]='novaJustificativa.IdAcao' [ngModelOptions]="{ standalone: true }" [attr.value]='acaoSelecionado'
+                                        class="col-xs-12 input-xs">
+                                        <option *ngFor='let a of acoes' [ngValue]='a.Id' [selected]='a.Id == acaoSelecionado.Id'>{{a.Nome}}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf='acaoSelecionado.PodeEditarJustificativa'>
+                                    <div class="col-xs-3" style="margin-top:3px">
+                                        <label for="exampleInputEmail2">Justificativa:</label>
+                                    </div>
+                                    <div class="col-xs-9" style="margin-top:3px">
+                                        <span class="input-icon icon-right">
+                                            <textarea [required]="acaoSelecionado.JustificativaObrigatoria" [disabled]='novaJustificativa.Id > 0 || !podeJustificar'
+                                                [(ngModel)]='novaJustificativa.AcaoJustificativa' [ngModelOptions]="{ standalone: true }"
+                                                 class="form-control input-xs"
+                                                rows="4"></textarea>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="podeJustificar">
+                        <div class="pull-right">
+                            <a id="btn-justificativa-anterior" [routerLink]='' (click)='usarAnterior()' class="btn btn-primary btn-xs" style="margin-right:3px;margin-top:10px;">
+                                <i class="fa fa-repeat"></i>Utilizar anterior
+                            </a>
+                            <button id="btn-justificativa" [routerLink]='' (click)='justificar()' class="btn btn-primary btn-xs" style="margin-right:30px;margin-top:10px;">
+                                <i class="fa fa-archive"></i>Publicar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <prodesp-monitor-ultimas-justificativas [codSetor]='' [idGestor]='idGestor' [idItem]='idItem' [idItemGsnet]='idItemGsnet' [idJustificador]='codTipoJustificativa'></prodesp-monitor-ultimas-justificativas>
+
+</prodesp-loader>

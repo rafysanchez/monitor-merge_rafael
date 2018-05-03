@@ -1,0 +1,5 @@
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Proxy\bin\Release\Prodesp.Monitor.Proxy.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Proxy\bin\Release\Prodesp.Monitor.Proxy.pdb
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Proxy\obj\Release\Prodesp.Monitor.Proxy.csprojResolveAssemblyReference.cache
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Proxy\obj\Release\Prodesp.Monitor.Proxy.dll
+C:\Projetos\SES - Monitor\monitor\back end\Prodesp.Monitor\Prodesp.Monitor.Proxy\obj\Release\Prodesp.Monitor.Proxy.pdb

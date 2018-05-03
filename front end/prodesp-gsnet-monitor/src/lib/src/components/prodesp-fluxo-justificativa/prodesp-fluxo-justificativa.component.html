@@ -1,0 +1,12 @@
+<a [routerLink]='' title="F.M.E">
+  <i  class="fa fa-user" [status]='fluxo.FME'></i>
+</a>
+<a [routerLink]='' title="Compras">
+  <i class="fa fa-user" [ngClass]="{'green' : fluxo.Compras, 'red' : !fluxo.Compras}"></i>
+</a>
+<a [routerLink]='' title="CAF">
+  <i class="fa fa-user" [ngClass]="{'green' : fluxo.CAF ,'red' :  !fluxo.CAF}"></i>
+ </a>
+<a [routerLink]='' title="CAF Pública">
+  <i class="fa fa-user" [ngClass]="{'green' : fluxo.CAFPublica, 'red' : !fluxo.CAFPublica}"></i>
+</a>

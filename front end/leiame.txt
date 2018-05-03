@@ -1,0 +1,7 @@
+pasta para o projeto front monitor, exemplo:
+
+- components\angular\gestor
+- components\angular\local
+- components\angular\item
+- spa\
+- mvc\

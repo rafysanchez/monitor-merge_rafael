@@ -1,0 +1,41 @@
+<prodesp-table-widget [page]='page' [perPage]='perPage' [showPerPage]='tableConfig.showPerPage' 
+    (onSearchClicked)='onSearch($event)' (onPerPageChanged)='perPageChanged($event)'>
+    <ng-template ngWidgetActions>
+      
+      <div class="float-md-right">
+       Programas:
+          <select   class="input-xs" name="programas">   
+              <option value=0 selected = "selected"> Selecione o Programa</option>                                 
+              <option *ngFor='let t of comboData' [ngValue]="t.Tipo" > {{t.Descricao}}</option>                        
+          </select> 
+        Farmácias:
+          <select   class="input-xs" name = "farmacias">   
+                <option value=0 selected> Selecione a Farmacia</option>                                 
+                <option *ngFor='let t of comboData' [ngValue]="t.Tipo" > {{t.Descricao}}</option>                        
+          </select>  
+      </div>
+     
+   
+      </ng-template>
+    <ng-template ngWidgetBody>
+        <prodesp-table [tableOptions]="tableConfig" class="table-responsive">
+          <tr *ngFor='let item of tableData'>
+            <td>xxxxxxxxxx</td>
+            <td>xxxxxxxxxxxxxx </td>
+            <td class='descricao'>xxxxxxxxxxxxxxxx</td>          
+            <td class='descricao'>xxxxxxxxxxxxxxxx</td>
+            <td class='descricao'>xxxxxxxxxxxxxxxx</td>
+            <td><span class="label" [ngClass]='{"label-success": item.FlagAtivo, "label-danger": !item.FlagAtivo}'>xxxxxxxxxxxxxxx</span></td>  
+            
+            <td class="text-left">
+                <a class="btn btn-xs btn-info"  ><i class="fa fa-edit"></i> Farmácias </a> 
+                
+            </td>
+          </tr>        
+        </prodesp-table>
+      <prodesp-table-pagination class='row' [totalPages]='totalPages' [page]='page' [perPage]='perPage' (onPageChange)='pageChanges($event)'>
+              
+      </prodesp-table-pagination>
+    </ng-template>
+    
+  </prodesp-table-widget>     

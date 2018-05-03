@@ -1,0 +1,109 @@
+<div class="row" *ngIf="indicadores">
+    <div class="col-xs-2">
+        <div class="databox">
+            <div class="databox-left bg-white">
+                <div class="databox-sparkline">
+                    <i class="sky fa fa-flask"></i>
+                </div>
+
+
+            </div>
+            <div class="databox-right bg-white bordered bordered-platinum">
+                <span class="databox-number sky"></span>
+                <div class="databox-text darkgray">{{indicadores.NomePrograma}}</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-2">
+        <div class="databox">
+            <div class="databox-left bg-white">
+                <div class="databox-sparkline">
+                    <i class="sky fa fa-calendar"></i>
+                </div>
+
+
+            </div>
+            <div class="databox-right bg-white bordered bordered-platinum">
+                <span class="databox-number sky">Data</span>
+                <div class="databox-text darkgray">{{indicadores.DataMonitoramento}}</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <div class="databox">
+            <div class="databox-left bg-white">
+                <div class="databox-sparkline">
+                    <span class="danger font-60">{{indicadores.Percentual}}</span>
+                </div>
+            </div>
+            <div class="databox-right bg-white bordered bordered-platinum">
+                <span class="databox-number danger ">{{ indicadores.QuantidadeAlertasItens}} / {{ indicadores.QuantidadeItens}}</span>
+                <div class="databox-text darkgray">Em Criticidade</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <div class="databox">
+            <div class="databox-left bg-white">
+                <div class="databox-sparkline">
+                    <i class="danger fa fa-exclamation-circle"></i>
+                </div>
+
+
+            </div>
+            <div class="databox-right bg-white bordered bordered-platinum">
+                <span class="databox-number danger">{{indicadores.JustificativasPendentes}} / {{indicadores.QuantidadeAlertas}}</span>
+                <div class="databox-text darkgray"> Justificativas Pendentes </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-xs-4">
+            <div class="databox">
+                <div class="databox-left bg-white">
+                    <div class="databox-sparkline">
+                        <i class="danger fa fa-exclamation-circle"></i>
+                    </div>
+    
+    
+                </div>
+                <div class="databox-right bg-white bordered bordered-platinum">                  
+                    <div class="databox-text darkgray"> Tipo de Consumo Autonomia : {{ indicadores.TipoConsumoAutonomia}} </div>
+                    <div class="databox-text darkgray"> Tipo de Consumo Saldo Zerado : {{ indicadores.TipoConsumoSaldoZerado}} </div>
+                </div>
+            </div>
+    </div> -->
+    <div class="col-xs-2">
+        <div class="databox">
+            <div class="databox-left bg-white">
+                <div class="databox-sparkline">
+                    <i class="warning fa fa-info-circle"></i>
+                </div>
+
+
+            </div>
+            <div class="databox-right bg-white bordered bordered-platinum">
+                <span class="databox-number warning">Autonomia</span>
+                <div class="databox-text darkgray">{{indicadores.TipoConsumoAutonomia}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2">
+            <div class="databox">
+                <div class="databox-left bg-white">
+                    <div class="databox-sparkline">
+                        <i class="warning fa fa-info-circle"></i>
+                    </div>
+    
+    
+                </div>
+                <div class="databox-right bg-white bordered bordered-platinum">
+                    <span class="databox-number warning">Saldo Zerado</span>
+                    <div class="databox-text darkgray"> {{indicadores.TipoConsumoSaldoZerado}}</div>
+                </div>
+            </div>
+        </div>
+</div>

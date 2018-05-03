@@ -1,0 +1,11 @@
+<table class="table table-bordered table-hover font-90">
+    <tbody>
+        <tr *ngFor='let j of ultimasJustificativas'>
+            <td>{{j.DataJustificativa}}</td>
+            <td>Motivo: {{ j.Motivo.Nome }} |  Ação : {{ j.Acao.Nome }}</td>    
+        </tr>
+        <tr *ngIf='ultimasJustificativas.length === 0'>
+          <td colspan="2" class="text-center">Sem historicos de justificativas</td>
+        </tr>                 
+    </tbody>
+</table>

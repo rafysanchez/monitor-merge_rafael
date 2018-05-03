@@ -1,0 +1,35 @@
+<prodesp-modal [title]='title' [showConfirmButton]='showConfirmButton' [closeButtonText]='closeButtonText' [confirmButtonText]='confirmButtonText'
+    [isClickDisabled]='Tipo.errors' [modalData]='filtros' (onClose)='closeModal()' (onConfirm)='confirm(filtros)'>
+    <form role="form" id="frmFilter" name="frmFilter" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">Tipo</label>
+            <div class="col-sm-10">
+                <div class="">
+                    <select [(ngModel)]='filtros.Tipo' required #Tipo='ngModel' [ngModelOptions]="{ standalone: true }" [attr.value]='filtros.Tipo'
+                        class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option *ngFor='let t of Tipos' [selected]='filtros.Tipo === t.Id' [ngValue]="t.Id"> {{t.Descricao}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">Situação</label>
+            <div class="col-sm-10">
+                <div class="">
+                    <select [(ngModel)]='filtros.FlagAtivo' required #Tipo='ngModel' [ngModelOptions]="{ standalone: true }" [attr.value]='filtros.Tipo'
+                        class="form-control" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <option [value]='"-1"'> Todos </option>
+                        <option [value]='"S"'> Ativo </option>
+                        <option [value]='"N"'> Inativo </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="space-4"></div>
+        <div *ngIf="Tipo.errors && (Tipo.dirty || Tipo.touched)" class="alert alert-danger">
+            <div [hidden]="!Tipo.errors.required">
+                Selecione um tipo
+            </div>
+        </div>
+    </form>
+</prodesp-modal>

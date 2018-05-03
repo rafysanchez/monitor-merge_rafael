@@ -1,0 +1,5 @@
+pasta para todos os serviços usados pelo monitor, exemplo:
+- prodesp.monitor.gestor.svc
+- prodesp.monitor.local.svc
+- prodesp.monitor.estoque.svc
+- prodesp.monitor.item.svc

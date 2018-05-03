@@ -1,0 +1,1929 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/24/2018 11:04:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D-PROD-BP108586"
+  DTS:CreatorName="PRODESP-SEDE\811173"
+  DTS:DTSID="{08871580-D547-4CA5-A5E3-6E97744B9FE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.90"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Motor"
+  DTS:PackageType="5"
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{AD54DEB4-D726-4D31-8E2E-6574CE28C616}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GSNET_DES_CORP.GSSMONDES]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{91FBC0D1-BB67-4F35-A7A4-FC08725C280E}"
+      DTS:ObjectName="GSNET_DES_CORP.GSSMONDES">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MONDES;User ID=MONDES;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOY8Wuj6aj06VAnBqugBg0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAg2uu/0YTJrj5dsYW5yFLkAAAAAASAAACgAAAAEAAAAGtZ0d2//IRZl5cEbm5NYR0QAAAAAHbxxTgGYm+2REzwu4QZQhQAAABC5VEZ5Wff/SrKZErEvjWoHuhlXA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GSNET_DES_CORP.GSSSESDES]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ECF35674-A34A-4435-9A7E-5855BA4EDF7E}"
+      DTS:ObjectName="GSNET_DES_CORP.GSSSESDES">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=GSNET_DES_CORP;User ID=GSSSESDES;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOY8Wuj6aj06VAnBqugBg0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACRfRXVsMC7G8eaPleV5p8AAAAAAASAAACgAAAAEAAAAKieMvKOpF50pMj+H0+X8b8YAAAAJgt3FguRsepTJwl1zW/pSgZ6lPnJSuYmFAAAAI0ds70qWgb2VsUQu95XfHlwaNB9</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{338E531F-9997-471F-A3AF-066CBAC66548}"
+      DTS:ObjectName="AnoMesFim">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">201704</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{78BC5A43-BAE8-460B-8265-74B0B8F7A70B}"
+      DTS:ObjectName="AnoMesInicio">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">201601</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{C70A5923-A4D0-4C33-BEA5-859ADB4D18EA}"
+      DTS:ObjectName="DataReferencia">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">5/21/2017</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{73DAD23D-E7CF-4688-8322-A99A9F1A3F26}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AnoRef">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8A109197-26B9-4B81-953B-84EDFDA3A231}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ConsumosPeriodo">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E4EEEB4-E976-47BE-BDDF-05C059671BB4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataConsulta">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FFD34321-100D-4915-82F5-0009A22FB44C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataReferencia">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{059E835B-24B5-4F92-9533-7507EC392C75}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdGestor">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B5AC4219-DD12-4EB4-A92A-C8C59AB5176C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdGestor1">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6EC6B374-3CBD-4F83-BE17-56253593F2B1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdItem">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D055FF3-8443-4BC4-A741-BFAC767CC0E6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdProgramaSaude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{914ACA7C-2D54-4773-8530-02FC33CA7D93}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxConsumo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5026CF37-B1A5-4721-B134-3D7672F6E110}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MenorConsumo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FCBAF609-0899-4560-8026-6A4EF7C197E1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MesRef">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{280704FC-D1E2-4192-B019-E3A73577B963}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="QtConsumo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E49BED93-B604-45E1-B124-10E17BD27B11}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ResultSet">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BC55AC89-176E-48EB-AD6E-F524F1E54C20}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SaldoDisponivel">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76569541-7613-4FA2-A07F-69AAB52B8713}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="UltimoConsumo">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga de dados do GSNET no Monitor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{90072678-E912-4920-B733-A2D768AC9770}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga de dados do GSNET no Monitor"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Salvar dados do GSNET no Monitor"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">"MONDES"."MON_SALDO_CONSUMO_GSNET_STG"</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[GSNET_DES_CORP.GSSMONDES]"
+                  connectionManagerRefId="Package.ConnectionManagers[GSNET_DES_CORP.GSSMONDES]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[ID_GESTOR]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ID_GESTOR"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_GESTOR]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_GESTOR]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[ID_ITEM]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ID_ITEM"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_ITEM]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_ITEM]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[ID_PROGRAMA_SAUDE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ID_PROGRAMA_SAUDE"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_PROGRAMA_SAUDE]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_PROGRAMA_SAUDE]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[ULTIMO_CONSUMO]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ULTIMO_CONSUMO"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ULTIMO_CONSUMO]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ULTIMO_CONSUMO]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[MENOR_CONSUMO]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MENOR_CONSUMO"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[MENOR_CONSUMO]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MENOR_CONSUMO]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[MAX_CONSUMO]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MAX_CONSUMO"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[MAX_CONSUMO]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MAX_CONSUMO]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[SALDO_DISPONIVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SALDO_DISPONIVEL"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[SALDO_DISPONIVEL]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[SALDO_DISPONIVEL]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[DT_CONSULTA]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DT_CONSULTA"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[DT_CONSULTA]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_CONSULTA]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[DT_REFERENCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DT_REFERENCIA"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[DT_REFERENCIA]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_REFERENCIA]" />
+                    <inputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].Columns[QT_CONSUMO]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="QT_CONSUMO"
+                      externalMetadataColumnId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[QT_CONSUMO]"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[QT_CONSUMO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_GESTOR]"
+                      dataType="numeric"
+                      name="ID_GESTOR"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_ITEM]"
+                      dataType="numeric"
+                      name="ID_ITEM"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID_PROGRAMA_SAUDE]"
+                      dataType="numeric"
+                      name="ID_PROGRAMA_SAUDE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[ULTIMO_CONSUMO]"
+                      dataType="numeric"
+                      name="ULTIMO_CONSUMO"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[MENOR_CONSUMO]"
+                      dataType="numeric"
+                      name="MENOR_CONSUMO"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[MAX_CONSUMO]"
+                      dataType="numeric"
+                      name="MAX_CONSUMO"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[SALDO_DISPONIVEL]"
+                      dataType="numeric"
+                      name="SALDO_DISPONIVEL"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[DT_CONSULTA]"
+                      dataType="dbTimeStamp"
+                      name="DT_CONSULTA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[DT_REFERENCIA]"
+                      dataType="numeric"
+                      name="DT_REFERENCIA"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB].ExternalColumns[QT_CONSUMO]"
+                      dataType="numeric"
+                      name="QT_CONSUMO"
+                      precision="8" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Transformar Dados"
+              version="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public SaldosConsumosBuffer SaldosConsumosBuffer;
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != SaldosConsumosBuffer)
+        {
+            SaldosConsumosBuffer.SetEndOfRowset();
+            SaldosConsumosBuffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"SaldosConsumos"))
+            {
+                SaldosConsumosBuffer = new SaldosConsumosBuffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+        FinishOutputs();
+        MarkOutputsFinished();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public String DataConsulta
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["DataConsulta"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String DataReferencia
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["DataReferencia"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String IdGestor
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["IdGestor"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String IdGestor1
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["IdGestor1"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String IdItem
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["IdItem"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String IdProgramaSaude
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["IdProgramaSaude"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String MaxConsumo
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["MaxConsumo"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String MenorConsumo
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["MenorConsumo"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String QtConsumo
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["QtConsumo"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public Object ResultSet
+    {
+        get
+        {
+            return (Object)(ParentComponent.ReadOnlyVariables["ResultSet"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String SaldoDisponivel
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["SaldoDisponivel"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String UltimoConsumo
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["UltimoConsumo"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System.Data.OleDb;
+
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+
+    public override void CreateNewOutputRows()
+    {
+        OleDbDataAdapter da = new OleDbDataAdapter();
+        DataTable dt = new DataTable();
+
+
+        // Extrai os dados do result set anterior
+        da.Fill(dt, Variables.ResultSet);
+        foreach (DataRow dr in dt.Rows)
+        {
+            // Create a new, empty row in the output buffer
+            SaldosConsumosBuffer.AddRow();
+
+            // Now populate the columns
+            SaldosConsumosBuffer.IDGESTOR = dr["ID_GESTOR"] != null ?  dr["ID_GESTOR"].ToString() : string.Empty;
+            SaldosConsumosBuffer.IDITEM = dr["ID_ITEM"] != null ? dr["ID_ITEM"].ToString() : string.Empty;
+            SaldosConsumosBuffer.IDPROGRAMASAUDE = dr["ID_PROGRAMA_SAUDE"] != null ? dr["ID_PROGRAMA_SAUDE"].ToString() : string.Empty;
+            //SaldosConsumosBuffer.ULTIMOCONSUMO = dr["ULTIMO_CONSUMO"] != null ? dr["ULTIMO_CONSUMO"].ToString() : string.Empty;
+            //SaldosConsumosBuffer.MAXCONSUMO = dr["MAX_CONSUMO"] != null ?  dr["MAX_CONSUMO"].ToString() : string.Empty;
+            //SaldosConsumosBuffer.MENORCONSUMO = dr["MENOR_CONSUMO"] != null ? dr["MENOR_CONSUMO"].ToString() : string.Empty;
+            SaldosConsumosBuffer.SALDODISPONIVEL = dr["SALDO_DISPONIVEL"] != null ? dr["SALDO_DISPONIVEL"].ToString() : string.Empty;
+            SaldosConsumosBuffer.QTCONSUMO = dr["QT_CONSUMO"] != null ? dr["QT_CONSUMO"].ToString() : string.Empty;
+
+            SaldosConsumosBuffer.DTCONSULTA = dr["DT_CONSULTA"] != null ? dr["DT_CONSULTA"].ToString() : null;
+            SaldosConsumosBuffer.DTREFERENCIA = dr["DT_REFERENCIA"] != null ? dr["DT_REFERENCIA"].ToString() : null;
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_7bcc29fbddcb491dbf4db15828178113.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44C47812-7668-437A-8D0D-EC0B62DCBF8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_7bcc29fbddcb491dbf4db15828178113</RootNamespace>
+    <AssemblyName>SC_7bcc29fbddcb491dbf4db15828178113</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC130</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_7bcc29fbddcb491dbf4db15828178113.Properties.Settings.get_Default():SC_7bcc29fbddcb491dbf4db15828178113.Properties.Sett" +
+    "ings")]
+
+namespace SC_7bcc29fbddcb491dbf4db15828178113.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class SaldosConsumosBuffer: ScriptBuffer
+
+{
+    public SaldosConsumosBuffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String IDGESTOR
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool IDGESTOR_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String IDITEM
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool IDITEM_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String IDPROGRAMASAUDE
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool IDPROGRAMASAUDE_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String ULTIMOCONSUMO
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool ULTIMOCONSUMO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String MENORCONSUMO
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool MENORCONSUMO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String MAXCONSUMO
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool MAXCONSUMO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String SALDODISPONIVEL
+    {
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool SALDODISPONIVEL_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String DTCONSULTA
+    {
+        set
+        {
+            this[7] = value;
+        }
+    }
+    public bool DTCONSULTA_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(7);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String DTREFERENCIA
+    {
+        set
+        {
+            this[8] = value;
+        }
+    }
+    public bool DTREFERENCIA_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(8);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String QTCONSUMO
+    {
+        set
+        {
+            this[9] = value;
+        }
+    }
+    public bool QTCONSUMO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(9);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>SC_7bcc29fbddcb491dbf4db15828178113</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>SC_7bcc29fbddcb491dbf4db15828178113</msb:DisplayName>
+		<msb:ProjectId>{23A722CC-FA3D-40DB-BF2F-8FA38DD223E8}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_7bcc29fbddcb491dbf4db15828178113.csproj"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="BufferWrapper.cs"/>
+		<msb:File Include="main.cs"/>
+		<msb:File Include="ComponentWrapper.cs"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_7bcc29fbddcb491dbf4db15828178113")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_7bcc29fbddcb491dbf4db15828178113")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_7bcc29fbddcb491dbf4db15828178113.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_7bcc29fbddcb491dbf4db15828178113.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_7bcc29fbddcb491dbf4db15828178113.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_7bcc29fbddcb491dbf4db15828178113.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_7bcc29fbddcb491dbf4db15828178113.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_7bcc29fbddcb491dbf4db15828178113.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEvvjVoAAAAAAAAAAOAAIiALATAAACIAAAAIAAAAAAAABkAA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAALQ/AABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAADCAAAAAgAAAAIgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAYAAAAAYAAAAkAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAKgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADo
+PwAAAAAAAEgAAAACAAUAbCYAAJAYAAABAAAAAAAAAPw+AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswAwClAQAAAQAAEXMQAAAKcxEAAAoKBgJ7AgAABG8rAAAG
+bxIAAAomBm8TAAAKbxQAAAoLOFgBAAAHbxUAAAp0EAAAAQwCewMAAARvGAAABgJ7AwAABAhyAQAA
+cG8WAAAKLQd+FwAACisQCHIBAABwbxYAAApvGAAACm8EAAAGAnsDAAAECHIVAABwbxYAAAotB34X
+AAAKKxAIchUAAHBvFgAACm8YAAAKbwYAAAYCewMAAAQIciUAAHBvFgAACi0HfhcAAAorEAhyJQAA
+cG8WAAAKbxgAAApvCAAABgJ7AwAABAhySQAAcG8WAAAKLQd+FwAACisQCHJJAABwbxYAAApvGAAA
+Cm8QAAAGAnsDAAAECHJrAABwbxYAAAotB34XAAAKKxAIcmsAAHBvFgAACm8YAAAKbxYAAAYCewMA
+AAQIcoEAAHBvFgAACi0DFCsQCHKBAABwbxYAAApvGAAACm8SAAAGAnsDAAAECHKZAABwbxYAAAot
+AxQrEAhymQAAcG8WAAAKbxgAAApvFAAABgdvGQAACjqd/v//3hEHdREAAAENCSwGCW8aAAAK3CoA
+AABBHAAAAgAAACkAAABqAQAAkwEAABEAAAAAAAAAHgIoGwAABioqAgMEBSgbAAAKKiYCFgMoHAAA
+CipaAywIAhYoHQAACipytQAAcHMeAAAKeiYCFwMoHAAACipaAywIAhcoHQAACipytQAAcHMeAAAK
+eiYCGAMoHAAACipaAywIAhgoHQAACipytQAAcHMeAAAKeiYCGQMoHAAACipaAywIAhkoHQAACipy
+tQAAcHMeAAAKeiYCGgMoHAAACipaAywIAhooHQAACipytQAAcHMeAAAKeiYCGwMoHAAACipaAywI
+AhsoHQAACipytQAAcHMeAAAKeiYCHAMoHAAACipaAywIAhwoHQAACipytQAAcHMeAAAKeiYCHQMo
+HAAACipaAywIAh0oHQAACipytQAAcHMeAAAKeiYCHgMoHAAACipaAywIAh4oHQAACipytQAAcHMe
+AAAKeioCHwkDKBwAAAoqXgMsCQIfCSgdAAAKKnK1AABwcx4AAAp6HgIoHwAACioeAiggAAAKKh4C
+KCEAAAoqfgIoIgAACgICcyAAAAZ9AQAABAICcyEAAAZ9AgAABCoGKm4CewMAAAQsEgJ7AwAABG8Z
+AAAGAhR9AwAABCoAAAATMAUASQAAAAIAABEWCisuBAaUDgRyUgEAcCgjAAAKMxkCBQaaAgQGlCgk
+AAAKDgRzAwAABn0DAAAEBhdYCgYDMs4Cbx8AAAYCbxwAAAYCKB0AAAYqOgIoJQAACgIDfQQAAAQq
+OgIoJQAACgIDfQUAAAQqlgJ7BQAABG8mAAAKcnABAHBvJwAACigoAAAKbykAAAp0IQAAASqWAnsF
+AAAEbyYAAApyigEAcG8nAAAKKCgAAApvKQAACnQhAAABKpYCewUAAARvJgAACnKoAQBwbycAAAoo
+KAAACm8pAAAKdCEAAAEqlgJ7BQAABG8mAAAKcroBAHBvJwAACigoAAAKbykAAAp0IQAAASqWAnsF
+AAAEbyYAAApyzgEAcG8nAAAKKCgAAApvKQAACnQhAAABKpYCewUAAARvJgAACnLcAQBwbycAAAoo
+KAAACm8pAAAKdCEAAAEqlgJ7BQAABG8mAAAKcvwBAHBvJwAACigoAAAKbykAAAp0IQAAASqWAnsF
+AAAEbyYAAApyEgIAcG8nAAAKKCgAAApvKQAACnQhAAABKpYCewUAAARvJgAACnIsAgBwbycAAAoo
+KAAACm8pAAAKdCEAAAEqggJ7BQAABG8mAAAKckACAHBvJwAACigoAAAKbykAAAoqlgJ7BQAABG8m
+AAAKclQCAHBvJwAACigoAAAKbykAAAp0IQAAASqWAnsFAAAEbyYAAApydAIAcG8nAAAKKCgAAApv
+KQAACnQhAAABKh4CKCUAAAoqrn4GAAAELR5ykAIAcNAHAAACKCoAAApvKwAACnMsAAAKgAYAAAR+
+BgAABCoafgcAAAQqHgKABwAABCoafggAAAQqHgIoLQAACiouczMAAAaACAAABCpCU0pCAQABAAAA
+AAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAABICQAAI34AALQJAADsCQAAI1N0cmluZ3MAAAAAoBMA
+AAQDAAAjVVMApBYAABAAAAAjR1VJRAAAALQWAADcAQAAI0Jsb2IAAAAAAAAAAgAAAVcVogEJAQAA
+APoBMwAWAAABAAAAKQAAAAgAAAAIAAAANAAAAB4AAAAtAAAAEAAAAAIAAAAEAAAAIwAAACQAAAAB
+AAAABgAAAAEAAAAAAG0EAQAAAAAABgBoA4EHBgD8A4EHBgC0Am4HDwD1BwAABgDhAu0FBgBLA+0F
+BgAsA+0FBgDjA+0FBgCIA+0FBgChA+0FBgD4Au0FBgATAyAECgC8A94BDgCkATQBBgAwB3cIDgDK
+CTQBBgCuAaUFCgDWBt4BEgCyBt4BCgB3Bt4BCgAXCd4BBgDJCKUFBgCXAm4HBgDnBqEHBgArBtgF
+FgBnAkMEFgDIAkMEFgBHAsMFBgB8AoEHDgAfB1EBDgD/BTQBDgAsAjQBBgA8BKUFBgARBqUFGgAR
+APcGGgABAPcGVwCaCQAAGgAiAPcGBgD/AaUFBgC6AaUFBgDdCe0FAAAAAGwAAAAAAAEAAQABABAA
+uAUAABAAAQABAAEAEADBBgAASQABAAMAAQAQAPkIAABVAAEAGwABABAAiggAAFkABAAgAAEAEAA/
+CAAAWQAFACEAAAAQAKgHBAhZAAYALgAAARAAbggECHEACAAyAAYAigivAAYAPwizAAYAwQa3AAEA
+Bwm7AAEABwm7ABEArAW/ABEAHALDABEAgAHHAFAgAAAAAMYAtQgGAAEAICIAAAAAhhhKBwYAAQAo
+IgAAAACGGEoHSwABADMiAAAAAIYIFAEQAAQAPSIAAAAAhghsBcsABQBUIgAAAACGCMkAEAAGAF4i
+AAAAAIYI/gTLAAcAdSIAAAAAhgihABAACAB/IgAAAACGCMgEywAJAJYiAAAAAIYI1AAQAAoAoCIA
+AAAAhggQBcsACwC3IgAAAACGCOYAEAAMAMEiAAAAAIYIKQXLAA0A2CIAAAAAhggFARAADgDiIgAA
+AACGCFYFywAPAPkiAAAAAIYItQAQABAAAyMAAAAAhgjjBMsAEQAaIwAAAACGCIYAEAASACQjAAAA
+AIYIsgTLABMAOyMAAAAAhgh1ABAAFABFIwAAAACGCJoEywAVAFwjAAAAAIYI9wAQABYAZyMAAAAA
+hghBBcsAFwB/IwAAAACGANIJBgAYAIcjAAAAAIYA3ggGABgAjyMAAAAAhgDhCEcAGACXIwAAAACG
+GEoHBgAYALcjAAAAAMYBnggGABgAuSMAAAAAgQBsAQYAGADYIwAAAADGAHEJ0AAYALcjAAAAAMYB
+tQgGABwALSQAAAAAhhhKB9wAHAA8JAAAAACGGEoH3AAdAEskAAAAAIYIQAFDAB4AcSQAAAAAhggh
+AUMAHgCXJAAAAACGCFcHQwAeAL0kAAAAAIYIOgBDAB4A4yQAAAAAhgiaBUMAHgAJJQAAAACGCJAB
+QwAeAC8lAAAAAIYIaAZDAB4AVSUAAAAAhghJBkMAHgB7JQAAAACGCFoGQwAeAKElAAAAAIYI0Ag3
+AB4AwiUAAAAAhghZBEMAHgDoJQAAAACGCDcGQwAeAA4mAAAAAIMYSgcGAB4AFiYAAAAAkwjjBuIA
+HgBCJgAAAACTCAQC5wAeAEkmAAAAAJMIEALsAB4AUSYAAAAAlgjtCPIAHwBYJgAAAACGGEoHBgAf
+AGAmAAAAAJEYUAf3AB8AAAABANwGAAACAEkIAAADAIUGAAABABoEAAABABoEAAABABoEAAABABoE
+AAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAAB
+ABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABABoEAAABAKQIAAACAGQHAAADAJYI
+AAAEAIUGAAABAB0JAAABAB0JAAABABoECQBKBwEAEQBKBwYAGQBKBwoAKQBKBxAAMQBKBxAAOQBK
+BxAAQQBKBxAASQBKBxAAUQBKBxAAWQBKBxAAYQBKBxAAaQBKBwYAuQBKBwYA2QBKBxUA6QBKBwYA
+8QBKBwYAcQBKBwYA8QCVBCYAcQCsCC0AAQE8BzIAeQAnCTcAgQCIBTsACQHmCUAAsQA6BEMAeQB9
+CUcAiQBfAgYAkQBKB0sAkQCRBVUAkQCABQEAEQFKBxAAkQDSCQYAkQDeCAYAkQDhCEcAqQBKBwYA
+qQCVAF8AqQBdCGYAsQBKBwYAqQAzCGwAGQGIBXIAqQC1CXkAIQGGCX8AOQHMAYYAOQHZCY8AwQBK
+B5UA4QBKBwYALgALABYBLgATAB8BLgAbAD4BLgAjAEcBLgArAHABLgAzAHABLgA7AHABLgBDAEcB
+LgBLAHYBLgBTAHABLgBbAI0BQwBjANcB4wBrANcBAQF7ANcBKQRzAD4BSQRzAD4BGwBbAAMAAQAG
+ABUABwAhAAgAIwAAABgB+wAAAHAF/wAAAM0A+wAAAAIF/wAAAKUA+wAAAMwE/wAAANgA+wAAABQF
+/wAAAOoA+wAAAC0F/wAAAAkB+wAAAFoF/wAAALkA+wAAAOcE/wAAAIoA+wAAALYE/wAAAHkA+wAA
+AJ4E/wAAAPsA+wAAAEUF/wAAAEQB+wAAACUB+wAAAFsH+wAAAD4A+wAAAJ4F+wAAAJQB+wAAAGwG
++wAAAE0G+wAAAF4G+wAAANQIAwEAAF0E+wAAADsG+wAAAOcGBwEAACQCDAEAAPEIEQEBAAQAAwAB
+AAUABQABAAYABwABAAcACQABAAgACwABAAkADQABAAoADwABAAsAEQABAAwAEwABAA0AFQABAA4A
+FwABAA8AGQABABAAGwABABEAHQABABIAHwABABMAIQABABQAIwABABUAJQABABYAJwABABcAKQAC
+ACIAKwACACMALQACACQALwACACUAMQACACYAMwACACcANQACACgANwACACkAOQACACoAOwACACsA
+PQACACwAPwACAC0AQQACAC8AQwACADAARQABADEARQACADIARwAEgAAAAQAAAAAAAAAAAAAAAABI
+AAAABAAAAAAAAAAAAAAAnQBjAQAAAAAOAAAAAAAAAAAAAACmADMJAAAAAAQAAAAAAAAAAAAAAJ0A
+NAEAAAAADgAAAAAAAAAAAAAApgBQCQAAAAAEAAAAAAAAAAAAAACdAKUFAAAAAA4AAAAAAAAAAAAA
+AKYAjwYAAAAAAAAAAAEAAACyBwAAAAAASURUU1ZhcmlhYmxlMTAwAElEVFNWYXJpYWJsZXMxMDAA
+SURUU0V2YWx1YXRvckNvbnRleHQxMDAAZ2V0X0lkR2VzdG9yMQBTQ183YmNjMjlmYmRkY2I0OTFk
+YmY0ZGIxNTgyODE3ODExMwA8TW9kdWxlPgBzZXRfRFRSRUZFUkVOQ0lBAHNldF9EVENPTlNVTFRB
+AEdldE91dHB1dElEAHNldF9JRFBST0dSQU1BU0FVREUAc2V0X1NBTERPRElTUE9OSVZFTABzZXRf
+SURJVEVNAHNldF9VTFRJTU9DT05TVU1PAHNldF9NRU5PUkNPTlNVTU8Ac2V0X1FUQ09OU1VNTwBz
+ZXRfTUFYQ09OU1VNTwBzZXRfSURHRVNUT1IAZ2V0X0RhdGFSZWZlcmVuY2lhAFN5c3RlbS5EYXRh
+AGdldF9EYXRhQ29uc3VsdGEAU3lzdGVtLkRhdGEuT2xlRGIAbXNjb3JsaWIATWFya091dHB1dHNG
+aW5pc2hlZABkZWZhdWx0SW5zdGFuY2UAZ2V0X0lkUHJvZ3JhbWFTYXVkZQBEYXRhVGFibGUASURp
+c3Bvc2FibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUATWljcm9zb2Z0LlNx
+bFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJj
+ZUN1bHR1cmUASW50ZXJuYWxEYXRhQ29sbGVjdGlvbkJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jh
+c2UARGlzcG9zZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0
+ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9y
+QnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1h
+cmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlv
+bkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhh
+dGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0
+QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5
+Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQB2YWx1ZQBTeXN0
+ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABnZXRf
+U2FsZG9EaXNwb25pdmVsAFNDXzdiY2MyOWZiZGRjYjQ5MWRiZjRkYjE1ODI4MTc4MTEzLmRsbABG
+aWxsAHNldF9EVFJFRkVSRU5DSUFfSXNOdWxsAHNldF9EVENPTlNVTFRBX0lzTnVsbABzZXRfSURQ
+Uk9HUkFNQVNBVURFX0lzTnVsbABzZXRfU0FMRE9ESVNQT05JVkVMX0lzTnVsbABzZXRfSURJVEVN
+X0lzTnVsbABzZXRfVUxUSU1PQ09OU1VNT19Jc051bGwAc2V0X01FTk9SQ09OU1VNT19Jc051bGwA
+c2V0X1FUQ09OU1VNT19Jc051bGwAc2V0X01BWENPTlNVTU9fSXNOdWxsAHNldF9JREdFU1RPUl9J
+c051bGwAU2V0TnVsbABnZXRfSXRlbQBzZXRfSXRlbQBnZXRfSWRJdGVtAFN5c3RlbQByZXNvdXJj
+ZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9u
+AFN5c3RlbS5SZWZsZWN0aW9uAERhdGFSb3dDb2xsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNl
+cHRpb24AQ3VsdHVyZUluZm8AZ2V0X1VsdGltb0NvbnN1bW8AZ2V0X01lbm9yQ29uc3VtbwBnZXRf
+UXRDb25zdW1vAGdldF9NYXhDb25zdW1vAE91dHB1dE5hbWVNYXAAT3V0cHV0TWFwAE1pY3Jvc29m
+dC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAAUGlwZWxpbmVCdWZmZXIAU2FsZG9zQ29uc3Vtb3NC
+dWZmZXIAU2NyaXB0QnVmZmVyAGdldF9SZXNvdXJjZU1hbmFnZXIATWljcm9zb2Z0LlNxbFNlcnZl
+ci5EdHMuUnVudGltZS5XcmFwcGVyAE9sZURiRGF0YUFkYXB0ZXIASUVudW1lcmF0b3IAR2V0RW51
+bWVyYXRvcgAuY3RvcgAuY2N0b3IAZ2V0X0lkR2VzdG9yAE91dHB1dElEcwBTeXN0ZW0uRGlhZ25v
+c3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFND
+XzdiY2MyOWZiZGRjYjQ5MWRiZjRkYjE1ODI4MTc4MTEzLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJl
+c291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ183YmNjMjlmYmRkY2I0OTFkYmY0ZGIxNTgyODE3ODEx
+My5Qcm9wZXJ0aWVzAGdldF9SZWFkT25seVZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdl
+dENvbHVtbkluZGV4ZXMAU2V0dGluZ3MAU3lzdGVtLkNvbGxlY3Rpb25zAENvbm5lY3Rpb25zAEJ1
+ZmZlcnMARmluaXNoT3V0cHV0cwBnZXRfUm93cwBDcmVhdGVOZXdPdXRwdXRSb3dzAE9iamVjdABn
+ZXRfUmVzdWx0U2V0AFNldEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFy
+ZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABnZXRfQ3VycmVudABNaWNyb3NvZnQuU3FsU2Vy
+dmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AFByaW1lT3V0cHV0
+AE1vdmVOZXh0AEdldFZhbHVlV2l0aENvbnRleHQAU2NyaXB0Q29tcG9uZW50RXZhbENvbnRleHQA
+Z2V0X0V2YWx1YXRvckNvbnRleHQARGF0YVJvdwBBZGRSb3cAZ2V0X0Fzc2VtYmx5AEVtcHR5AAAT
+SQBEAF8ARwBFAFMAVABPAFIAAA9JAEQAXwBJAFQARQBNAAAjSQBEAF8AUABSAE8ARwBSAEEATQBB
+AF8AUwBBAFUARABFAAAhUwBBAEwARABPAF8ARABJAFMAUABPAE4ASQBWAEUATAAAFVEAVABfAEMA
+TwBOAFMAVQBNAE8AABdEAFQAXwBDAE8ATgBTAFUATABUAEEAABtEAFQAXwBSAEUARgBFAFIARQBO
+AEMASQBBAACAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABi
+AGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwA
+dQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAHVMAYQBs
+AGQAbwBzAEMAbwBuAHMAdQBtAG8AcwAAGUQAYQB0AGEAQwBvAG4AcwB1AGwAdABhAAAdRABhAHQA
+YQBSAGUAZgBlAHIAZQBuAGMAaQBhAAARSQBkAEcAZQBzAHQAbwByAAATSQBkAEcAZQBzAHQAbwBy
+ADEAAA1JAGQASQB0AGUAbQAAH0kAZABQAHIAbwBnAHIAYQBtAGEAUwBhAHUAZABlAAAVTQBhAHgA
+QwBvAG4AcwB1AG0AbwAAGU0AZQBuAG8AcgBDAG8AbgBzAHUAbQBvAAATUQB0AEMAbwBuAHMAdQBt
+AG8AABNSAGUAcwB1AGwAdABTAGUAdAAAH1MAYQBsAGQAbwBEAGkAcwBwAG8AbgBpAHYAZQBsAAAb
+VQBsAHQAaQBtAG8AQwBvAG4AcwB1AG0AbwAAcVMAQwBfADcAYgBjAGMAMgA5AGYAYgBkAGQAYwBi
+ADQAOQAxAGQAYgBmADQAZABiADEANQA4ADIAOAAxADcAOAAxADEAMwAuAFAAcgBvAHAAZQByAHQA
+aQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAADnCghkgykLSqA1HGdO9HWVAAQgAQEIAyAAAQUg
+AQEREQQgAQEOBSABARFpCgcEEjkSPRJBEkUGIAIIEjkcBCAAEn0EIAASPQMgABwEIAEcDgIGDgMg
+AA4DIAACCSADARJNHQgSUQUgAgEIHAMHAQgGAAIIElEOBSABHQgIBSAAEoCNBiABEoCRHAUAABKA
+lQYgARwSgJkIAAESgJ0RgKEFIAASgKUHIAIBDhKApQi3elxWGTTgiQiJhF3NgIDMkQMGEhQDBhIY
+AwYSDAMGElUDBhJhAwYSZQMGEiAEIAEBAgsgBAEIHQgdEk0SUQUgAQESVQQAABJhBAAAEmUFAAEB
+EmUEAAASIAMAAAEDKAAOAygAAgMoABwECAASYQQIABJlBAgAEiAIAQAIAAAAAAAeAQABAFQCFldy
+YXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDXzdiY2MyOWZiZGRjYjQ5MWRiZjRk
+YjE1ODI4MTc4MTEzAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMTgAAEkBABouTkVURnJhbWV3
+b3JrLFZlcnNpb249djQuNQEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsg
+NC41BAEAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIs
+IG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9r
+ZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIA
+AAAAAAAAAAAAAFBBRFBBRFC0AAAA3D8AAAAAAAAAAAAA9j8AAAAgAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAOg/AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAA
+AAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAA
+AOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+
+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBh
+AHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAA
+sARMAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAoAwAAAQAwADAAMAAwADAANABi
+ADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4AeQBOAGEA
+bQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAQwBf
+ADcAYgBjAGMAMgA5AGYAYgBkAGQAYwBiADQAOQAxAGQAYgBmADQAZABiADEANQA4ADIAOAAxADcA
+OAAxADEAMwAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAwAC4AMAAA
+AHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8ANwBiAGMAYwAyADkAZgBiAGQA
+ZABjAGIANAA5ADEAZABiAGYANABkAGIAMQA1ADgAMgA4ADEANwA4ADEAMQAzAC4AZABsAGwAAABI
+ABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAA
+IAAgADIAMAAxADgAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAA
+AHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwA3AGIAYwBjADIA
+OQBmAGIAZABkAGMAYgA0ADkAMQBkAGIAZgA0AGQAYgAxADUAOAAyADgAMQA3ADgAMQAxADMALgBk
+AGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8ANwBiAGMAYwAyADkA
+ZgBiAGQAZABjAGIANAA5ADEAZABiAGYANABkAGIAMQA1ADgAMgA4ADEANwA4ADEAMQAzAAAANAAI
+AAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgACAABAEEA
+cwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAAAIMAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_7bcc29fbddcb491dbf4db15828178113</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::DataConsulta,User::DataReferencia,User::IdGestor,User::IdGestor1,User::IdItem,User::IdProgramaSaude,User::MaxConsumo,User::MenorConsumo,User::QtConsumo,User::ResultSet,User::SaldoDisponivel,User::UltimoConsumo</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">DB</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos]"
+                  hasSideEffects="true"
+                  name="SaldosConsumos">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_GESTOR]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_GESTOR]"
+                      name="ID_GESTOR" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_ITEM]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_ITEM]"
+                      name="ID_ITEM" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_PROGRAMA_SAUDE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ID_PROGRAMA_SAUDE]"
+                      name="ID_PROGRAMA_SAUDE" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ULTIMO_CONSUMO]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[ULTIMO_CONSUMO]"
+                      name="ULTIMO_CONSUMO" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MENOR_CONSUMO]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MENOR_CONSUMO]"
+                      name="MENOR_CONSUMO" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MAX_CONSUMO]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[MAX_CONSUMO]"
+                      name="MAX_CONSUMO" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[SALDO_DISPONIVEL]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[SALDO_DISPONIVEL]"
+                      name="SALDO_DISPONIVEL" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_CONSULTA]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_CONSULTA]"
+                      name="DT_CONSULTA" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_REFERENCIA]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[DT_REFERENCIA]"
+                      name="DT_REFERENCIA" />
+                    <outputColumn
+                      refId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[QT_CONSUMO]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos].Columns[QT_CONSUMO]"
+                      name="QT_CONSUMO" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga de dados do GSNET no Monitor.Paths[SaldosConsumos]"
+              endId="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor.Inputs[Entrada de Destino OLE DB]"
+              name="SaldosConsumos"
+              startId="Package\Carga de dados do GSNET no Monitor\Transformar Dados.Outputs[SaldosConsumos]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Gerar dados de consumo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB828B6B-2C25-4A33-AC7F-6CC4E8542063}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Gerar dados de consumo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{91FBC0D1-BB67-4F35-A7A4-FC08725C280E}"
+          SQLTask:SqlStatementSource="BEGIN&#xA;     PRC_GERAR_CONSUMO_MONITOR(?);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::DataReferencia"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="18" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SALDOS_CONSUMOS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Consulta os saldos e consumos dos itens no GSNET"
+      DTS:DTSID="{E5EBE856-F61E-4C2A-9884-D18259A07D53}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SALDOS_CONSUMOS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ECF35674-A34A-4435-9A7E-5855BA4EDF7E}"
+          SQLTask:SqlStatementSource="SELECT DISTINCT GI.ID_GESTOR AS ID_GESTOR,&#xA;                GI.ID_ITEM AS ID_ITEM,&#xA;                IPS.ID_PROGRAMA_SAUDE AS ID_PROGRAMA_SAUDE,&#xA;                SUM(QT_SQTS) QT_CONSUMO,&#xA;                TO_NUMBER(ESTAT.NR_ANO_REF || TRIM(to_char(ESTAT.NR_MES_REF, '00'))) DT_REFERENCIA,&#xA;                TRUNC(SYSDATE) AS DT_CONSULTA,&#xA;                (SELECT NVL(SUM(E.QT_SALDO -&#xA;                                (E.QT_EMPENHADA + E.QT_EMPENHADA_PLAN)),&#xA;                            0)&#xA;                   FROM GSS_ESTOQUE E&#xA;                  WHERE E.ID_ITEM = gi.ID_ITEM&#xA;                    AND E.ID_GESTOR = GI.ID_GESTOR&#xA;                  GROUP BY E.ID_GESTOR, E.ID_ITEM) SALDO_DISPONIVEL&#xA;  FROM GSS_ITEM_PROGRAMA_SAUDE IPS&#xA;  JOIN GSS_ITEM I ON IPS.ID_ITEM = I.ID_ITEM&#xA;  JOIN GSS_GESTOR_ITEM GI ON I.ID_ITEM = GI.ID_ITEM&#xA;  LEFT JOIN GSS_ITEM_ESTAT_TP_MOV ESTAT ON GI.ID_GESTOR = ESTAT.ID_GESTOR&#xA;                                       AND GI.ID_ITEM = ESTAT.ID_ITEM&#xA; WHERE ESTAT.ID_TP_MOVIMENTACAO IN&#xA;       (SELECT ID_TP_MOVIMENTACAO&#xA;          FROM GSS_TP_MOVIMENTACAO&#xA;         WHERE FL_CONSUMO = 'S'&#xA;           AND FL_ENTRADA_SAIDA = 'S')&#xA;   AND (TO_NUMBER(ESTAT.NR_ANO_REF || TRIM(to_char(ESTAT.NR_MES_REF, '00'))) BETWEEN&#xA;       ? AND ? )&#xA; GROUP BY GI.ID_GESTOR,&#xA;          GI.ID_ITEM,&#xA;          IPS.ID_PROGRAMA_SAUDE,&#xA;          ESTAT.NR_ANO_REF,&#xA;          ESTAT.NR_MES_REF&#xA; ORDER BY GI.ID_GESTOR,&#xA;          GI.ID_ITEM,&#xA;          TO_NUMBER(ESTAT.NR_ANO_REF || TRIM(to_char(ESTAT.NR_MES_REF, '00')))"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ResultSet" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::AnoMesInicio"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="6" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::AnoMesFim"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="6" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F269FB6E-EB68-487C-900D-DC7DC595C762}"
+      DTS:From="Package\SALDOS_CONSUMOS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Carga de dados do GSNET no Monitor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB8CA31D-1818-4C62-91B9-CE3C35D41B6E}"
+      DTS:From="Package\Carga de dados do GSNET no Monitor"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Gerar dados de consumo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Carga de dados do GSNET no Monitor"
+          TopLeft="341,121" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Gerar dados de consumo"
+          TopLeft="366,257" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SALDOS_CONSUMOS"
+          TopLeft="379,12" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="469,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="467,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94"
+              Start="0,0"
+              End="0,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga de dados do GSNET no Monitor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Carga de dados do GSNET no Monitor\Transformar Dados"
+          TopLeft="362,46" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor"
+          TopLeft="322,181" />
+        <EdgeLayout
+          Id="Package\Carga de dados do GSNET no Monitor.Paths[SaldosConsumos]"
+          TopLeft="445.25,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,93"
+              Start="0,0"
+              End="0,85.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de dados do GSNET no Monitor\Salvar dados do GSNET no Monitor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
